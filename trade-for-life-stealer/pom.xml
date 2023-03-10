@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>stealer</artifactId>
+    <artifactId>trade-for-life-stealer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Stealer</name>
     <description>Stealer for trade games bot</description>

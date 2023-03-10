@@ -6,6 +6,7 @@
 
     <groupId>org.trade4life</groupId>
     <artifactId>parent</artifactId>
+    <name>Parent</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -16,8 +17,8 @@
     </properties>
 
     <modules>
-        <module>core</module>
-        <module>stealer</module>
+        <module>trade-for-life-core</module>
+        <module>trade-for-life-stealer</module>
     </modules>
 
 </project>
