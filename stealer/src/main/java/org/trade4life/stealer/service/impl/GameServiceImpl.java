@@ -1,8 +1,8 @@
-package com.example.disktraderstealerjava.service.impl;
+package org.trade4life.stealer.service.impl;
 
-import com.example.disktraderstealerjava.model.GameModel;
-import com.example.disktraderstealerjava.repository.GamesRepository;
-import com.example.disktraderstealerjava.service.GameService;
+import org.trade4life.stealer.model.GameModel;
+import org.trade4life.stealer.repository.GamesRepository;
+import org.trade4life.stealer.service.GameService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

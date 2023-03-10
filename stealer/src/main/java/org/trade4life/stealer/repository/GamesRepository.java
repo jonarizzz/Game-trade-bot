@@ -1,6 +1,6 @@
-package com.example.disktraderstealerjava.repository;
+package org.trade4life.stealer.repository;
 
-import com.example.disktraderstealerjava.model.GameModel;
+import org.trade4life.stealer.model.GameModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

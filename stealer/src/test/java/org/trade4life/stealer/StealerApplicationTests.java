@@ -1,10 +1,10 @@
-package com.example.disktraderstealerjava;
+package org.trade4life.stealer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DiskTraderStealerJavaApplicationTests {
+class StealerApplicationTests {
 
     @Test
     void contextLoads() {

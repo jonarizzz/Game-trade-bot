@@ -16,6 +16,7 @@
     </properties>
 
     <modules>
+        <module>core</module>
         <module>stealer</module>
     </modules>
 

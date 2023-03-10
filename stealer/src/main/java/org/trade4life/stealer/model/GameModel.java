@@ -1,4 +1,4 @@
-package com.example.disktraderstealerjava.model;
+package org.trade4life.stealer.model;
 
 import lombok.Getter;
 import lombok.Setter;

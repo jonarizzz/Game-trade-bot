@@ -1,4 +1,4 @@
-package com.example.disktraderstealerjava.web;
+package org.trade4life.stealer.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
-package com.example.disktraderstealerjava.web;
+package org.trade4life.stealer.web;
 
-import com.example.disktraderstealerjava.service.GameService;
+import org.trade4life.stealer.service.GameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
