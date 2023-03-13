@@ -7,24 +7,24 @@ import java.util.List;
 
 @Getter
 @AllArgsConstructor
-public enum  CoreInternalErrorCode {
+public enum CoreInternalErrorCode {
     MISSING_MANDATORY_PARAMETER(11, Constants.MISSING_MANDATORY_PARAMETER, "Not found some of mandatory parameter"),
 
-    STEALER_CLIENT_ERROR(32, Constants.STEALER_CLIENT_ERROR, "Unexpected error in stealer client"),
-    GAMES_CLIENT_ERROR(33, Constants.GAMES_CLIENT_ERROR, "Unexpected error in games client"),
-    USERS_CLIENT_ERROR(34, Constants.USERS_CLIENT_ERROR, "Unexpected error in users client"),
-    OFFERS_CLIENT_ERROR(35, Constants.OFFERS_CLIENT_ERROR, "Unexpected error in offers client"),
+    STEALER_CLIENT_ERROR(32, Constants.STEALER_CLIENT_ERROR, "Unexpected error in stealer client"), GAMES_CLIENT_ERROR(33,
+        Constants.GAMES_CLIENT_ERROR, "Unexpected error in games client"), USERS_CLIENT_ERROR(34, Constants.USERS_CLIENT_ERROR,
+            "Unexpected error in users client"), OFFERS_CLIENT_ERROR(35, Constants.OFFERS_CLIENT_ERROR,
+                "Unexpected error in offers client"),
 
-    METHOD_ARGUMENT_EXCEPTION(10, Constants.METHOD_ARGUMENT_EXCEPTION, "Method argument not valid exception"),
-    INTERNAL_SYSTEM_ERROR_DEFAULT(300, Constants.INTERNAL_ERROR, "Unexpected internal system error"),
+    METHOD_ARGUMENT_EXCEPTION(10, Constants.METHOD_ARGUMENT_EXCEPTION,
+        "Method argument not valid exception"), INTERNAL_SYSTEM_ERROR_DEFAULT(300, Constants.INTERNAL_ERROR,
+            "Unexpected internal system error"),
 
-    ACCESS_DENIED(301, Constants.ACCESS_DENIED, "Access denied"),
-    UNAUTHORIZED_REQUEST(302, Constants.UNAUTHORIZED, "Unauthorized request"),
+    ACCESS_DENIED(301, Constants.ACCESS_DENIED, "Access denied"), UNAUTHORIZED_REQUEST(302, Constants.UNAUTHORIZED,
+        "Unauthorized request"),
 
-    GAME_NOT_FOUND(1106, Constants.GAME_NOT_FOUND, "Game can't be found"),
-    USER_NOT_FOUND(1107, Constants.USER_NOT_FOUND, "User can't be found"),
-    OFFER_NOT_FOUND(1108, Constants.OFFER_NOT_FOUND, "Offer can't be found"),
-    ;
+    GAME_NOT_FOUND(1106, Constants.GAME_NOT_FOUND, "Game can't be found"), USER_NOT_FOUND(1107, Constants.USER_NOT_FOUND,
+        "User can't be found"), OFFER_NOT_FOUND(1108, Constants.OFFER_NOT_FOUND, "Offer can't be found"),
+        ;
 
     private final Integer coreErrorCode;
     private final String coreErrorCodeStr;

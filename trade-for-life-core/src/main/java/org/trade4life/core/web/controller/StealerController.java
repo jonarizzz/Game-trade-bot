@@ -23,12 +23,13 @@ public class StealerController {
     private static final Logger LOGGER = LoggerFactory.getLogger(StealerController.class);
 
     @ApiOperation(value = "Trigger the PSN stealer for games parsing", nickname = "stealPsn")
-    @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "Found cos list"),
-        @ApiResponse(code = 400, message = "Bad request"),
-        @ApiResponse(code = 403, message = "Access denied"),
-        @ApiResponse(code = 500, message = "Internal error")
-    })
+    @ApiResponses(
+        value = {
+            @ApiResponse(code = 200, message = "Found cos list"),
+            @ApiResponse(code = 400, message = "Bad request"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 500, message = "Internal error")
+        })
     @GetMapping(value = "/psn/steal", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> stealPsn() {
         return new ResponseEntity(null);

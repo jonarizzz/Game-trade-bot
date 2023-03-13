@@ -36,19 +36,18 @@ public interface ResponseMapper {
             .build();
     }
 
-    default OfferGamesResponse toOfferGamesResponse(Set<Game> games, Page<Offer> publishedOffers, Platform platform, Pageable pageable) {
+    default OfferGamesResponse toOfferGamesResponse(Set<Game> games, Page<Offer> publishedOffers, Platform platform,
+        Pageable pageable) {
 
         Map<String, List<Offer>> offersByGameId = publishedOffers.getContent().stream()
             .sorted(Comparator.comparing(Offer::getGameId).thenComparing(Offer::getPrice))
             .collect(Collectors.groupingBy(Offer::getGameId));
 
         Set<GameWithRelatedOffers> offerGames = games.stream()
-            .map(game ->
-                GameWithRelatedOffers.builder()
-                    .game(game)
-                    .offers(offersByGameId.get(game.getId()))
-                    .build()
-            )
+            .map(game -> GameWithRelatedOffers.builder()
+                .game(game)
+                .offers(offersByGameId.get(game.getId()))
+                .build())
             .collect(Collectors.toSet());
 
         return OfferGamesResponse.builder()

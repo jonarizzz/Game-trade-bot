@@ -40,7 +40,8 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public OfferGamesResponse findOffersByStatusAndTelegramId(OfferStatus offerStatus, String telegramId, Pageable pageable) {
-        Page<Offer> publishedUserOffers = offerRepository.findOffersByStatusAndTelegramUserId(OfferStatus.PUBLISHED, telegramId, pageable);
+        Page<Offer> publishedUserOffers = offerRepository.findOffersByStatusAndTelegramUserId(OfferStatus.PUBLISHED, telegramId,
+            pageable);
         Set<String> gameIds = publishedUserOffers.getContent().stream()
             .map(Offer::getGameId)
             .collect(Collectors.toSet());

@@ -26,9 +26,9 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GamePropositionResponse findGameByTitlePartAndPlatform(String titleText, Platform platform, Integer propositionSize) {
-        Page<Game> propositionsPage = StringUtils.isNotBlank(titleText) ?
-            gameRepository.findGamesByTitlePart(titleText, PageRequest.of(0, propositionSize)) :
-            gameRepository.findAllGames(PageRequest.of(0, propositionSize));
+        Page<Game> propositionsPage = StringUtils.isNotBlank(titleText)
+            ? gameRepository.findGamesByTitlePart(titleText, PageRequest.of(0, propositionSize))
+            : gameRepository.findAllGames(PageRequest.of(0, propositionSize));
 
         List<Game> pageContent = propositionsPage.getContent();
         boolean isOneLineSearchResult = propositionSize > 1 && pageContent.size() == 1;
@@ -39,8 +39,8 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GameResponse findAllGamesByTitlePartAndPlatform(String titlePart, Platform platform, Pageable pageable) {
-        Page<Game> gamesPage = StringUtils.isBlank(titlePart) ? gameRepository.findAllGames(pageable) :
-            gameRepository.findGamesByTitlePart(titlePart, pageable);
+        Page<Game> gamesPage = StringUtils.isBlank(titlePart) ? gameRepository.findAllGames(pageable)
+            : gameRepository.findGamesByTitlePart(titlePart, pageable);
 
         return responseMapper.toGameResponse(gamesPage, platform, pageable);
     }

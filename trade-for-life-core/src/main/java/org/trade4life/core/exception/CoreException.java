@@ -31,7 +31,8 @@ public class CoreException extends RuntimeException implements CoreInternalError
         this.httpStatus = httpStatus;
     }
 
-    public CoreException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, CoreInternalErrorCode errorCode, HttpStatus httpStatus) {
+    public CoreException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace,
+        CoreInternalErrorCode errorCode, HttpStatus httpStatus) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.errorCode = errorCode;
         this.httpStatus = httpStatus;

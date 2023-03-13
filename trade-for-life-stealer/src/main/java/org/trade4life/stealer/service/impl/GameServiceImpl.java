@@ -41,21 +41,20 @@ public class GameServiceImpl implements GameService {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        try{
+        try {
             JsonNode rootNode = mapper.readTree(result);
             JsonNode links = rootNode.get("links");
 
             int iterator = 0;
 
-            for (JsonNode gameNode : links){
+            for (JsonNode gameNode : links) {
                 GameModel game = mapJsonToModel(gameNode);
                 allGames.add(game);
                 iterator++;
-                if (iterator % logBatchSize == 0){
+                if (iterator % logBatchSize == 0) {
                     log.info(iterator + " games parsed");
                 }
             }
-
 
         } catch (JsonProcessingException e) {
             log.error("Json processing exception occurred during the parsing of the games: " + e.getMessage());
@@ -76,7 +75,7 @@ public class GameServiceImpl implements GameService {
         gameModel.setPublisher(gameNode.get("provider_name").asText());
         gameModel.setPsnURL("https://store.playstation.com/en-us/product/" + gameNode.get("id").asText());
 
-        if (gameNode.has("default_sku")){
+        if (gameNode.has("default_sku")) {
             gameModel.setPriceUsd(gameNode.get("default_sku").get("display_price").asText());
         }
 

@@ -15,7 +15,7 @@ public class StealerController {
     private final GameService gameService;
 
     @RequestMapping("/stealAll")
-    public ResponseEntity<String> stealAll(){
+    public ResponseEntity<String> stealAll() {
         gameService.stealAllGames();
         return new ResponseEntity<>("Stealing of all games finished", HttpStatus.OK);
     }

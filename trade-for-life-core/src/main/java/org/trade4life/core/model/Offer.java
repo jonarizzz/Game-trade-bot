@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "gameId", "telegramUserId"})
+@EqualsAndHashCode(of = { "id", "gameId", "telegramUserId" })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel(value = "Offer", description = "Offer information")
 public class Offer {

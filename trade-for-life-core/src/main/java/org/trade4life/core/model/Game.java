@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(of = { "id" })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel(value = "Game", description = "Game information")
 public class Game {
@@ -26,7 +26,9 @@ public class Game {
     private String description;
     @ApiModelProperty(position = 5, allowableValues = "PSN, ESHOP")
     private Platform platform = Platform.PSN;
-    @ApiModelProperty(position = 6, example = "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0082-CUSA18774_00-0000000000000000/1601080823000/image")
+    @ApiModelProperty(
+        position = 6,
+        example = "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0082-CUSA18774_00-0000000000000000/1601080823000/image")
     private String image;
     @ApiModelProperty(position = 7, example = "https://store.playstation.com/en-us/product/UP0082-CUSA18774_00-0000000000000000")
     private String psnURL;
