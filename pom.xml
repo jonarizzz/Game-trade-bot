@@ -19,12 +19,13 @@
         <spotless.version>1.31.2</spotless.version>
         <jacoco.version>0.8.7</jacoco.version>
         <surefire.version>2.22.0</surefire.version>
-        <flyway.version>9.8.1</flyway.version>
+        <postgres.driver.version>9.2-1002.jdbc4</postgres.driver.version>
     </properties>
 
     <modules>
         <module>trade-for-life-core</module>
         <module>trade-for-life-stealer</module>
+        <module>trade-for-life-common</module>
     </modules>
 
     <dependencies>
@@ -166,13 +167,6 @@
                 <configuration>
                     <trimStackTrace>false</trimStackTrace>
                 </configuration>
-            </plugin>
-
-            <!-- Flyway -->
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>${flyway.version}</version>
             </plugin>
         </plugins>
     </build>
