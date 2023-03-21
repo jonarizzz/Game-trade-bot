@@ -14,26 +14,26 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-feign:
-  hystrix:
-    enabled: true
-  # client:
-  #     config:
-  #         default:
-  #             connectTimeout: 5000
-  #             readTimeout: 5000
+#feign:
+#  hystrix:
+#    enabled: true
+#  # client:
+#  #     config:
+#  #         default:
+#  #             connectTimeout: 5000
+#  #             readTimeout: 5000
 
-# See https://github.com/Netflix/Hystrix/wiki/Configuration
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: SEMAPHORE
-          # See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
-          # thread:
-          #     timeoutInMilliseconds: 10000
-  shareSecurityContext: true
+## See https://github.com/Netflix/Hystrix/wiki/Configuration
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          strategy: SEMAPHORE
+#          # See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
+#          # thread:
+#          #     timeoutInMilliseconds: 10000
+#  shareSecurityContext: true
 
 management:
   endpoints:
@@ -116,9 +116,9 @@ server:
         http-only: true
 
 # Properties to be exposed on the /info management endpoint
-info:
-  # Comma separated list of profiles that will trigger the ribbon to show
-  display-ribbon-on-profiles: 'dev'
+#info:
+#  # Comma separated list of profiles that will trigger the ribbon to show
+#  display-ribbon-on-profiles: 'dev'
 
 # ===================================================================
 # JHipster specific properties
@@ -126,30 +126,30 @@ info:
 # Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-jhipster:
-  clientApp:
-    name: 'discsTraderCoreApp'
-  # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #     allowed-origins: "*"
-  #     allowed-methods: "*"
-  #     allowed-headers: "*"
-  #     exposed-headers: "Authorization,Link,X-Total-Count"
-  #     allow-credentials: true
-  #     max-age: 1800
-  mail:
-    from: DiscsTraderCore@localhost
-  swagger:
-    default-include-pattern: /api/.*
-    title: DiscsTraderCore API
-    description: DiscsTraderCore API documentation
-    version: 0.0.1
-    terms-of-service-url:
-    contact-name:
-    contact-url:
-    contact-email:
-    license:
-    license-url:
+#jhipster:
+#  clientApp:
+#    name: 'discsTraderCoreApp'
+#  # By default CORS is disabled. Uncomment to enable.
+#  # cors:
+#  #     allowed-origins: "*"
+#  #     allowed-methods: "*"
+#  #     allowed-headers: "*"
+#  #     exposed-headers: "Authorization,Link,X-Total-Count"
+#  #     allow-credentials: true
+#  #     max-age: 1800
+#  mail:
+#    from: DiscsTraderCore@localhost
+#  swagger:
+#    default-include-pattern: /api/.*
+#    title: DiscsTraderCore API
+#    description: DiscsTraderCore API documentation
+#    version: 0.0.1
+#    terms-of-service-url:
+#    contact-name:
+#    contact-url:
+#    contact-email:
+#    license:
+#    license-url:
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
