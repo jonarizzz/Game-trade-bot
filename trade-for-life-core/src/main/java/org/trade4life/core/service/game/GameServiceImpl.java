@@ -1,5 +1,6 @@
 package org.trade4life.core.service.game;
 
+import org.springframework.util.StringUtils;
 import org.trade4life.core.model.Game;
 import org.trade4life.core.model.Platform;
 import org.trade4life.core.repository.GameRepository;
@@ -7,7 +8,6 @@ import org.trade4life.core.service.GameService;
 import org.trade4life.core.exception.CoreException;
 import org.trade4life.core.converter.ResponseMapper;
 import lombok.RequiredArgsConstructor;
-import io.micrometer.common.util.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +26,7 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GamePropositionResponse findGameByTitlePartAndPlatform(String titleText, Platform platform, Integer propositionSize) {
-        Page<Game> propositionsPage = StringUtils.isNotBlank(titleText)
+        Page<Game> propositionsPage = StringUtils.isEmpty(titleText)
             ? gameRepository.findGamesByTitlePart(titleText, PageRequest.of(0, propositionSize))
             : gameRepository.findAllGames(PageRequest.of(0, propositionSize));
 
@@ -39,7 +39,7 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GameResponse findAllGamesByTitlePartAndPlatform(String titlePart, Platform platform, Pageable pageable) {
-        Page<Game> gamesPage = StringUtils.isBlank(titlePart) ? gameRepository.findAllGames(pageable)
+        Page<Game> gamesPage = StringUtils.isEmpty(titlePart) ? gameRepository.findAllGames(pageable)
             : gameRepository.findGamesByTitlePart(titlePart, pageable);
 
         return responseMapper.toGameResponse(gamesPage, platform, pageable);

@@ -1,6 +1,7 @@
 package org.trade4life.core.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.extern.slf4j.Slf4j;
 import org.trade4life.core.model.Game;
 import org.trade4life.core.model.Platform;
 import org.trade4life.core.service.GameService;
@@ -29,6 +30,7 @@ import javax.validation.constraints.Positive;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Api(value = "core-games", tags = "core-games")
 @Validated
+@Slf4j
 public class GamesController {
     private final GameService gameService;
     private static final Logger LOGGER = LoggerFactory.getLogger(GamesController.class);
