@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    Optional<User> findUserById(String id);
-
-    List<User> findAllUsers(Pageable pageable);
-
-    Optional<User> findUserByNickname(String nickname);
-
-    Optional<User> findUserByTelegramId(String telegramId);
+//    Optional<User> findUserById(String id);
+//
+//    List<User> findAllUsers(Pageable pageable);
+//
+//    Optional<User> findUserByNickname(String nickname);
+//
+//    Optional<User> findUserByTelegramId(String telegramId);
 }

@@ -25,41 +25,46 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public class OfferServiceImpl implements OfferService {
     private final OfferRepository offerRepository;
     private final GameRepository gameRepository;
-    private final ResponseMapper responseMapper;
+//    private final ResponseMapper responseMapper;
 
     @Override
     public OfferGamesResponse findOffersByStatus(OfferStatus offerStatus, Pageable pageable) {
-        Page<Offer> publishedOffers = offerRepository.findOffersByStatus(OfferStatus.PUBLISHED, pageable);
-        Set<String> gameIds = publishedOffers.getContent().stream()
-            .map(Offer::getGameId)
-            .collect(Collectors.toSet());
-
-        Set<Game> games = gameRepository.findGamesByIdIn(gameIds);
-        return responseMapper.toOfferGamesResponse(games, publishedOffers, Platform.PSN, pageable);
+//        Page<Offer> publishedOffers = offerRepository.findOffersByStatus(OfferStatus.PUBLISHED, pageable);
+//        Set<String> gameIds = publishedOffers.getContent().stream()
+//            .map(Offer::getGameId)
+//            .collect(Collectors.toSet());
+//
+////        Set<Game> games = gameRepository.findGamesByIdIn(gameIds);
+//        return responseMapper.toOfferGamesResponse(games, publishedOffers, Platform.PSN, pageable);
+        return null;
     }
 
     @Override
     public OfferGamesResponse findOffersByStatusAndTelegramId(OfferStatus offerStatus, String telegramId, Pageable pageable) {
-        Page<Offer> publishedUserOffers = offerRepository.findOffersByStatusAndTelegramUserId(OfferStatus.PUBLISHED, telegramId,
-            pageable);
-        Set<String> gameIds = publishedUserOffers.getContent().stream()
-            .map(Offer::getGameId)
-            .collect(Collectors.toSet());
-
-        Set<Game> games = gameRepository.findGamesByIdIn(gameIds);
-        return responseMapper.toOfferGamesResponse(games, publishedUserOffers, Platform.PSN, pageable);
+//        Page<Offer> publishedUserOffers = offerRepository.findOffersByStatusAndTelegramUserId(OfferStatus.PUBLISHED, telegramId,
+//            pageable);
+//        Set<String> gameIds = publishedUserOffers.getContent().stream()
+//            .map(Offer::getGameId)
+//            .collect(Collectors.toSet());
+//
+//        Set<Game> games = gameRepository.findGamesByIdIn(gameIds);
+//        return responseMapper.toOfferGamesResponse(games, publishedUserOffers, Platform.PSN, pageable);
+        return null;
     }
 
     @Override
     public Offer findOfferById(String offerId) {
-        return offerRepository.findOfferById(offerId)
-            .orElseThrow(() -> new CoreException(CoreInternalErrorCode.OFFER_NOT_FOUND, NOT_FOUND));
+        return null;
+//        return offerRepository.findOfferById(offerId)
+//            .orElseThrow(() -> new CoreException(CoreInternalErrorCode.OFFER_NOT_FOUND, NOT_FOUND));
     }
 
     @Override
     public OfferGamesResponse findOfferByGameId(String gameId, Pageable pageable) {
-        Page<Offer> offers = offerRepository.findOffersByGameId(gameId, pageable);
-        return responseMapper.toOfferGamesResponse(offers, Platform.PSN, pageable);
+//        Page<Offer> offers = offerRepository.findOffersByGameId(gameId, pageable);
+//        return responseMapper.toOfferGamesResponse(offers, Platform.PSN, pageable);
+        return null;
+
     }
 
     @Override
@@ -73,9 +78,11 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public Offer updateOffer(Offer offer) {
-        offerRepository.findOfferById(offer.getId())
-            .orElseThrow(() -> new CoreException(CoreInternalErrorCode.OFFER_NOT_FOUND, NOT_FOUND));
-        return offerRepository.save(offer);
+//        offerRepository.findOfferById(offer.getId())
+//            .orElseThrow(() -> new CoreException(CoreInternalErrorCode.OFFER_NOT_FOUND, NOT_FOUND));
+//        return offerRepository.save(offer);
+        return null;
+
     }
 
     @Override

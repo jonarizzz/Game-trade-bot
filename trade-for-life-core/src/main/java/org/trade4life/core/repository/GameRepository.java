@@ -10,11 +10,11 @@ import java.util.Set;
 
 public interface GameRepository extends CrudRepository<Game, Long> {
 
-    Page<Game> findAllGames(Pageable pageable);
-
-    Page<Game> findGamesByTitlePart(String titlePart, Pageable pageable);
-
-    Set<Game> findGamesByIdIn(Set<String> gameId);
-
-    Optional<Game> findGameById(String id);
+//    Page<Game> findAllGames(Pageable pageable);
+//
+//    Page<Game> findGamesByTitlePart(String titlePart, Pageable pageable);
+//
+//    Set<Game> findGamesByIdIn(Set<String> gameId);
+//
+//    Optional<Game> findGameById(String id);
 }

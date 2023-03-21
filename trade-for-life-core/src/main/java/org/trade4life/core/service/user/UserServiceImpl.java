@@ -18,20 +18,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserById(String id) {
-        return userRepository.findUserById(id)
-            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+//        return userRepository.findUserById(id)
+//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        return null;
     }
 
     @Override
     public User findUserByTelegramId(String telegramId) {
-        return userRepository.findUserByTelegramId(telegramId)
-            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+//        return userRepository.findUserByTelegramId(telegramId)
+//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        return null;
+
     }
 
     @Override
     public User findUserByNickname(String nickname) {
-        return userRepository.findUserByNickname(nickname)
-            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+//        return userRepository.findUserByNickname(nickname)
+//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        return null;
+
     }
 
     @Override
@@ -54,8 +59,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
-        userRepository.findUserByTelegramId(user.getTelegramId())
-            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
-        return userRepository.save(user);
+//        userRepository.findUserByTelegramId(user.getTelegramId())
+//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+//        return userRepository.save(user);
+        return null;
     }
 }

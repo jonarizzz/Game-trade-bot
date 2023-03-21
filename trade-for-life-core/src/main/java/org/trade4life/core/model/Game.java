@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Builder
@@ -14,7 +16,9 @@ import lombok.*;
 @EqualsAndHashCode(of = { "id" })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel(value = "Game", description = "Game information")
+@Entity
 public class Game {
+    @Id
     @ApiModelProperty(position = 1, example = "5f70948f17361f2260cb22a7")
     private Long id;
     @ApiModelProperty(position = 2, example = "UP0082-CUSA18774_00-0000000000000000")

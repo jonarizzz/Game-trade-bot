@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Builder
@@ -13,7 +15,9 @@ import lombok.*;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel(value = "User", description = "User information")
+@Entity
 public class User {
+    @Id
     @ApiModelProperty(position = 1, example = "5f7f6398c0418a5b8c52bbce")
     @JsonIgnore
     private Long id;

@@ -22,32 +22,35 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RequiredArgsConstructor
 public class GameServiceImpl implements GameService {
     private final GameRepository gameRepository;
-    private final ResponseMapper responseMapper;
+//    private final ResponseMapper responseMapper;
 
     @Override
     public GamePropositionResponse findGameByTitlePartAndPlatform(String titleText, Platform platform, Integer propositionSize) {
-        Page<Game> propositionsPage = StringUtils.isEmpty(titleText)
-            ? gameRepository.findGamesByTitlePart(titleText, PageRequest.of(0, propositionSize))
-            : gameRepository.findAllGames(PageRequest.of(0, propositionSize));
-
-        List<Game> pageContent = propositionsPage.getContent();
-        boolean isOneLineSearchResult = propositionSize > 1 && pageContent.size() == 1;
-
-        Game game = isOneLineSearchResult ? pageContent.get(0) : null;
-        return responseMapper.toGamePropositionResponse(pageContent, game, platform);
+//        Page<Game> propositionsPage = StringUtils.isEmpty(titleText)
+//            ? gameRepository.findGamesByTitlePart(titleText, PageRequest.of(0, propositionSize))
+//            : gameRepository.findAllGames(PageRequest.of(0, propositionSize));
+//
+//        List<Game> pageContent = propositionsPage.getContent();
+//        boolean isOneLineSearchResult = propositionSize > 1 && pageContent.size() == 1;
+//
+//        Game game = isOneLineSearchResult ? pageContent.get(0) : null;
+//        return responseMapper.toGamePropositionResponse(pageContent, game, platform);
+        return null;
     }
 
     @Override
     public GameResponse findAllGamesByTitlePartAndPlatform(String titlePart, Platform platform, Pageable pageable) {
-        Page<Game> gamesPage = StringUtils.isEmpty(titlePart) ? gameRepository.findAllGames(pageable)
-            : gameRepository.findGamesByTitlePart(titlePart, pageable);
-
-        return responseMapper.toGameResponse(gamesPage, platform, pageable);
+//        Page<Game> gamesPage = StringUtils.isEmpty(titlePart) ? gameRepository.findAllGames(pageable)
+//            : gameRepository.findGamesByTitlePart(titlePart, pageable);
+//
+//        return responseMapper.toGameResponse(gamesPage, platform, pageable);
+        return null;
     }
 
     @Override
     public Game findGameById(String id, Platform platform) {
-        return gameRepository.findGameById(id)
-            .orElseThrow(() -> new CoreException(GAME_NOT_FOUND, NOT_FOUND));
+//        return gameRepository.findGameById(id)
+//            .orElseThrow(() -> new CoreException(GAME_NOT_FOUND, NOT_FOUND));
+        return null;
     }
 }
