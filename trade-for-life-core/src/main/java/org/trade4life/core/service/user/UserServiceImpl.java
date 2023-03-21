@@ -3,13 +3,9 @@ package org.trade4life.core.service.user;
 import org.trade4life.core.repository.UserRepository;
 import org.trade4life.core.service.UserService;
 import org.trade4life.core.model.User;
-import org.trade4life.core.exception.CoreException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import static org.trade4life.core.exception.CoreInternalErrorCode.USER_NOT_FOUND;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -18,23 +14,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserById(String id) {
-//        return userRepository.findUserById(id)
-//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        // return userRepository.findUserById(id)
+        // .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
         return null;
     }
 
     @Override
     public User findUserByTelegramId(String telegramId) {
-//        return userRepository.findUserByTelegramId(telegramId)
-//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        // return userRepository.findUserByTelegramId(telegramId)
+        // .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
         return null;
 
     }
 
     @Override
     public User findUserByNickname(String nickname) {
-//        return userRepository.findUserByNickname(nickname)
-//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        // return userRepository.findUserByNickname(nickname)
+        // .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
         return null;
 
     }
@@ -59,9 +55,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
-//        userRepository.findUserByTelegramId(user.getTelegramId())
-//            .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
-//        return userRepository.save(user);
+        // userRepository.findUserByTelegramId(user.getTelegramId())
+        // .orElseThrow(() -> new CoreException(USER_NOT_FOUND, NOT_FOUND));
+        // return userRepository.save(user);
         return null;
     }
 }

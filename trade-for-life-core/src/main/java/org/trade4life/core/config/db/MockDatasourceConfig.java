@@ -14,11 +14,11 @@ public class MockDatasourceConfig {
     @Primary
     public DataSource mockDataSource() {
         return DataSourceBuilder.create()
-                .url("jdbc:postgresql://localhost:5432/trade-bot")
-                .username("postgres")
-                .password("postgres")
-                .driverClassName("org.postgresql.Driver")
-                .build();
+            .url("jdbc:postgresql://localhost:5432/trade-bot")
+            .username("postgres")
+            .password("postgres")
+            .driverClassName("org.postgresql.Driver")
+            .build();
     }
 
 }
