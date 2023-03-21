@@ -76,6 +76,8 @@
     </dependencies>
 
     <build>
+        <finalName>${project.name}</finalName>
+
         <plugins>
             <!-- Java version management -->
             <plugin>
