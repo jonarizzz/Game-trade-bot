@@ -1,8 +1,9 @@
 package org.trade4life.stealer.service;
 
-public interface PlayStationGameService {
+public interface PlayStation4GameService {
 
     void stealAllPS4Games();
 
-    void stealAllPS5Games();
+    void updatePS4Games();
+
 }

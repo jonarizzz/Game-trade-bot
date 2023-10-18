@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS games (
      id int GENERATED ALWAYS AS IDENTITY,
      title text NOT NULL,
      publisher text,
+     store_game_id text UNIQUE,
      store_price_usd numeric,
      store_page_url text,
      thumbnail_url text,

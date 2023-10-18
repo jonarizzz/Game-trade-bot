@@ -23,6 +23,9 @@ public class GameModel {
     @Column(name = "publisher")
     private String publisher;
 
+    @Column(name = "store_game_id", unique = true)
+    private String storeGameId;
+
     @Column(name = "store_price_usd")
     private Double storePriceUsd;
 
