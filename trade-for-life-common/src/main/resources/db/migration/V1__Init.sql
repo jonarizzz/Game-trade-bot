@@ -1,17 +1,3 @@
-
-CREATE TABLE IF NOT EXISTS platforms (
-    id int GENERATED ALWAYS AS IDENTITY,
-    name varchar(512) NOT NULL,
-    PRIMARY KEY(id)
-);
-
-CREATE TABLE IF NOT EXISTS titles (
-     id int GENERATED ALWAYS AS IDENTITY,
-     title text NOT NULL ,
-     publisher text,
-     PRIMARY KEY(id)
-);
-
 CREATE TABLE IF NOT EXISTS users (
      id int GENERATED ALWAYS AS IDENTITY,
      telegram_id text NOT NULL ,
@@ -21,23 +7,31 @@ CREATE TABLE IF NOT EXISTS users (
      bio text,
      created_at timestamp,
      is_blocked text NOT NULL DEFAULT false,
-     PRIMARY KEY(id)
+     PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS regions (
      id int GENERATED ALWAYS AS IDENTITY,
      name varchar(1025) NOT NULL ,
      currency varchar(3) NOT NULL, -- Currency code (ex. USD, BYN, RUB)
-     PRIMARY KEY(id)
+     PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS platforms (
+    id int GENERATED ALWAYS AS IDENTITY,
+    name varchar(512) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS games (
      id int GENERATED ALWAYS AS IDENTITY,
-     title_id int NOT NULL,
+     title text NOT NULL,
+     publisher text,
+     store_price_usd numeric,
+     store_page_url text,
+     thumbnail_url text,
      platform_id int NOT NULL,
-     store_price_usd int,
      PRIMARY KEY(id),
-     CONSTRAINT fk_title FOREIGN KEY (title_id) REFERENCES titles(id),
      CONSTRAINT fk_platform FOREIGN KEY (platform_id) REFERENCES platforms(id)
 );
 

@@ -1,15 +1,38 @@
 package org.trade4life.stealer.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
+@Entity
+@Table(name = "games")
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class GameModel {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
+    private Long id;
+
+    @Column(name = "title")
     private String title;
-    private String imageUrl;
-    private String psnURL;
-    private String priceUsd;
+
+    @Column(name = "publisher")
     private String publisher;
+
+    @Column(name = "store_price_usd")
+    private Double storePriceUsd;
+
+    @Column(name = "store_page_url")
+    private String storePageUrl;
+
+    @Column(name = "thumbnail_url")
+    private String thumbnailUrl;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "platform_id", referencedColumnName = "id")
+    private PlatformModel platform;
 }
