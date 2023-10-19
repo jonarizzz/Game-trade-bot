@@ -1,7 +1,9 @@
 package org.trade4life.core.service.offer;
 
-import org.trade4life.core.model.Offer;
-import org.trade4life.core.model.OfferStatus;
+import org.springframework.data.domain.Page;
+import org.trade4life.core.converter.ResponseMapper;
+import org.trade4life.core.model.GameModel;
+import org.trade4life.core.model.OfferModel;
 import org.trade4life.core.repository.GameRepository;
 import org.trade4life.core.repository.OfferRepository;
 import org.trade4life.core.service.OfferService;
@@ -9,82 +11,56 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class OfferServiceImpl implements OfferService {
     private final OfferRepository offerRepository;
     private final GameRepository gameRepository;
-    // private final ResponseMapper responseMapper;
+    private final ResponseMapper responseMapper;
 
     @Override
-    public OfferGamesResponse findOffersByStatus(OfferStatus offerStatus, Pageable pageable) {
-        // Page<Offer> publishedOffers =
-        // offerRepository.findOffersByStatus(OfferStatus.PUBLISHED, pageable);
-        // Set<String> gameIds = publishedOffers.getContent().stream()
-        // .map(Offer::getGameId)
-        // .collect(Collectors.toSet());
-        //
-        //// Set<Game> games = gameRepository.findGamesByIdIn(gameIds);
-        // return responseMapper.toOfferGamesResponse(games, publishedOffers,
-        // Platform.PSN, pageable);
-        return null;
+    public OfferGamesResponse findOffersByTelegramId(String telegramId, Pageable pageable) {
+        Page<OfferModel> publishedUserOffers = offerRepository.findOffersByUserTelegramId(telegramId, pageable);
+        Set<Long> gameIds = publishedUserOffers.getContent().stream()
+            .map(offerModel -> offerModel.getGame().getId())
+            .collect(Collectors.toSet());
+
+        Set<GameModel> games = gameRepository.findGamesByIdIn(gameIds);
+        return responseMapper.toOfferGamesResponse(games, publishedUserOffers, pageable);
     }
 
     @Override
-    public OfferGamesResponse findOffersByStatusAndTelegramId(OfferStatus offerStatus, String telegramId, Pageable pageable) {
-        // Page<Offer> publishedUserOffers =
-        // offerRepository.findOffersByStatusAndTelegramUserId(OfferStatus.PUBLISHED,
-        // telegramId,
-        // pageable);
-        // Set<String> gameIds = publishedUserOffers.getContent().stream()
-        // .map(Offer::getGameId)
-        // .collect(Collectors.toSet());
-        //
-        // Set<Game> games = gameRepository.findGamesByIdIn(gameIds);
-        // return responseMapper.toOfferGamesResponse(games, publishedUserOffers,
-        // Platform.PSN, pageable);
-        return null;
+    public OfferModel findOfferById(Long offerId) {
+        return offerRepository.findOfferById(offerId)
+            .orElseThrow(RuntimeException::new);
     }
 
     @Override
-    public Offer findOfferById(String offerId) {
-        return null;
-        // return offerRepository.findOfferById(offerId)
-        // .orElseThrow(() -> new CoreException(CoreInternalErrorCode.OFFER_NOT_FOUND,
-        // NOT_FOUND));
+    public OfferGamesResponse findOfferByGameId(Long gameId, Pageable pageable) {
+        Page<OfferModel> offers = offerRepository.findOffersByGameId(gameId, pageable);
+        return responseMapper.toOfferGamesResponse(offers, pageable);
     }
 
     @Override
-    public OfferGamesResponse findOfferByGameId(String gameId, Pageable pageable) {
-        // Page<Offer> offers = offerRepository.findOffersByGameId(gameId, pageable);
-        // return responseMapper.toOfferGamesResponse(offers, Platform.PSN, pageable);
-        return null;
-
-    }
-
-    @Override
-    public Offer addNewOffer(Offer offer) {
+    public OfferModel addNewOffer(OfferModel offer) {
         if (offer.getId() != null) {
             return updateOffer(offer);
         }
-        offer.setStatus(OfferStatus.PUBLISHED);
         return offerRepository.save(offer);
     }
 
     @Override
-    public Offer updateOffer(Offer offer) {
-        // offerRepository.findOfferById(offer.getId())
-        // .orElseThrow(() -> new CoreException(CoreInternalErrorCode.OFFER_NOT_FOUND,
-        // NOT_FOUND));
-        // return offerRepository.save(offer);
-        return null;
-
+    public OfferModel updateOffer(OfferModel offer) {
+        offerRepository.findOfferById(offer.getId())
+            .orElseThrow(RuntimeException::new);
+        return offerRepository.save(offer);
     }
 
     @Override
-    public void deleteOffer(String offerId) {
+    public void deleteOffer(Long offerId) {
         offerRepository.deleteById(offerId);
     }
 }

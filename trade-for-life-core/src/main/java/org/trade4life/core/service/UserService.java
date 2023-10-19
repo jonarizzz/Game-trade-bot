@@ -1,19 +1,19 @@
 package org.trade4life.core.service;
 
-import org.trade4life.core.model.User;
+import org.trade4life.core.model.UserModel;
 import org.trade4life.core.service.user.UserResponse;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
-    User findUserById(String id);
+    UserModel findUserById(Long id);
 
-    User findUserByTelegramId(String telegramId);
+    UserModel findUserByTelegramId(String telegramId);
 
-    User findUserByNickname(String nickname);
+    UserModel findUserByNickname(String nickname);
 
     UserResponse findUsers(Pageable pageable);
 
-    User addNewUser(User user);
+    UserModel addNewUser(UserModel user);
 
-    User updateUser(User user);
+    UserModel updateUser(UserModel user);
 }

@@ -5,8 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
      name text,
      phone text,
      bio text,
-     created_at timestamp,
-     is_blocked text NOT NULL DEFAULT false,
+     is_blocked boolean NOT NULL DEFAULT false,
      PRIMARY KEY (id)
 );
 
@@ -36,7 +35,7 @@ CREATE TABLE IF NOT EXISTS games (
      CONSTRAINT fk_platform FOREIGN KEY (platform_id) REFERENCES platforms(id)
 );
 
-CREATE TYPE offer_type AS ENUM ('buy', 'sell', 'exchange');
+CREATE TYPE offer_type AS ENUM ('BUY', 'SELL', 'EXCHANGE');
 
 CREATE TABLE IF NOT EXISTS offers (
      id int GENERATED ALWAYS AS IDENTITY,
@@ -45,7 +44,7 @@ CREATE TABLE IF NOT EXISTS offers (
      region_id int,
      type offer_type NOT NULL,
      description text,
-     price int,
+     price numeric,
      is_active boolean NOT NULL DEFAULT true,
      PRIMARY KEY(id),
      CONSTRAINT fk_game FOREIGN KEY (game_id) REFERENCES games(id),

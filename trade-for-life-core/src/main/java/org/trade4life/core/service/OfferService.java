@@ -1,22 +1,19 @@
 package org.trade4life.core.service;
 
-import org.trade4life.core.model.Offer;
-import org.trade4life.core.model.OfferStatus;
+import org.trade4life.core.model.OfferModel;
 import org.trade4life.core.service.offer.OfferGamesResponse;
 import org.springframework.data.domain.Pageable;
 
 public interface OfferService {
-    OfferGamesResponse findOffersByStatus(OfferStatus offerStatus, Pageable pageable);
+    OfferGamesResponse findOffersByTelegramId(String telegramId, Pageable pageable);
 
-    OfferGamesResponse findOffersByStatusAndTelegramId(OfferStatus offerStatus, String telegramId, Pageable pageable);
+    OfferModel findOfferById(Long offerId);
 
-    Offer findOfferById(String offerId);
+    OfferGamesResponse findOfferByGameId(Long gameId, Pageable pageable);
 
-    OfferGamesResponse findOfferByGameId(String gameId, Pageable pageable);
+    OfferModel addNewOffer(OfferModel offer);
 
-    Offer addNewOffer(Offer offer);
+    OfferModel updateOffer(OfferModel offer);
 
-    Offer updateOffer(Offer offer);
-
-    void deleteOffer(String offerId);
+    void deleteOffer(Long offerId);
 }

@@ -1,15 +1,22 @@
 package org.trade4life.core.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
-import org.trade4life.core.model.Game;
+import org.springframework.stereotype.Repository;
+import org.trade4life.core.model.GameModel;
 
-public interface GameRepository extends CrudRepository<Game, Long> {
+import java.util.Optional;
+import java.util.Set;
 
-    // Page<Game> findAllGames(Pageable pageable);
-    //
-    // Page<Game> findGamesByTitlePart(String titlePart, Pageable pageable);
-    //
-    // Set<Game> findGamesByIdIn(Set<String> gameId);
-    //
-    // Optional<Game> findGameById(String id);
+@Repository
+public interface GameRepository extends CrudRepository<GameModel, Long> {
+
+    Page<GameModel> findAll(Pageable pageable);
+
+    Page<GameModel> findGamesByTitleContains(String titlePart, Pageable pageable);
+
+    Set<GameModel> findGamesByIdIn(Set<Long> gameId);
+
+    Optional<GameModel> findGameById(Long id);
 }

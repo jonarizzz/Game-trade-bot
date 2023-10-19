@@ -1,6 +1,6 @@
 export const TELEGRAM_BOT_KEY = "960038286:AAGZZHaFHCj1VCxvkBhGTLAYYWxd7DT7JNk";
 export const BOT_CORE_URL = "http://localhost:8081";
-export const PSN_PLATFORM = "PSN";
+export const PSN_PLATFORM = "PS4";
 export const BYN_CURRENCY = " руб."
 
 export const POST_USER_URL = `${BOT_CORE_URL}/api/telegram/users`

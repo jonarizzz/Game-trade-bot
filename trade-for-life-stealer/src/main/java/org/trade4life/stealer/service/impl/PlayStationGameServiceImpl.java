@@ -25,19 +25,12 @@ public class PlayStationGameServiceImpl implements PlayStation4GameService {
 
     @Value("${ps4.batch.size}")
     Integer ps4BatchSize;
-
     @Value("${ps4.api.path}")
     private String PS4_API_PATH;
-
-    @Value("${ps4.api.path.newest}")
-    private String PS4_API_PATH_NEWEST;
-
     private final GamesRepository gamesRepository;
     private final PlatformRepository platformRepository;
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper mapper = new ObjectMapper();
-
-
 
     @Override
     public void stealAllPS4Games() {
@@ -48,7 +41,7 @@ public class PlayStationGameServiceImpl implements PlayStation4GameService {
             int numberOfRuns = (int) Math.ceil((double) totalGames / (double) ps4BatchSize);
 
             log.info(String.format("Stealing PS4 games started with the following parameters: " +
-                    "total games = %s; batch size = %s; number of runs = %s;", totalGames, ps4BatchSize, numberOfRuns));
+                "total games = %s; batch size = %s; number of runs = %s;", totalGames, ps4BatchSize, numberOfRuns));
 
             for (int i = 0; i < numberOfRuns; i++) {
                 String psnResponseJson = getGamesJsonFromPSN(ps4BatchSize * i, ps4BatchSize);
@@ -70,7 +63,7 @@ public class PlayStationGameServiceImpl implements PlayStation4GameService {
             int numberOfRuns = (int) Math.ceil((double) totalGames / (double) ps4BatchSize);
 
             log.info(String.format("Updating PS4 games started with the following parameters: " +
-                    "total games = %s; batch size = %s; number of runs = %s;", totalGames, ps4BatchSize, numberOfRuns));
+                "total games = %s; batch size = %s; number of runs = %s;", totalGames, ps4BatchSize, numberOfRuns));
 
             for (int i = 0; i < numberOfRuns; i++) {
                 String psnResponseJson = getGamesJsonFromPSN(ps4BatchSize * i, ps4BatchSize);
@@ -90,7 +83,8 @@ public class PlayStationGameServiceImpl implements PlayStation4GameService {
         }
     }
 
-    private List<GameModel> convertPsnResponseJsonToListOfModels(String psnResponseJson, PlatformModel platform) throws JsonProcessingException {
+    private List<GameModel> convertPsnResponseJsonToListOfModels(String psnResponseJson, PlatformModel platform)
+        throws JsonProcessingException {
         List<GameModel> games = new ArrayList<>();
 
         JsonNode rootNode = mapper.readTree(psnResponseJson);

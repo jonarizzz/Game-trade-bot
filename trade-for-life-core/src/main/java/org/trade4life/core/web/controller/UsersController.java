@@ -1,14 +1,11 @@
 package org.trade4life.core.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.trade4life.core.model.UserModel;
 import org.trade4life.core.service.UserService;
-import org.trade4life.core.model.Platform;
-import org.trade4life.core.model.User;
 import org.trade4life.core.service.user.UserResponse;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -30,7 +27,6 @@ import javax.validation.constraints.Positive;
 public class UsersController {
 
     private final UserService userService;
-    private static final Logger LOGGER = LoggerFactory.getLogger(StealerController.class);
 
     @ApiOperation(value = "Get users", nickname = "getUsers")
     @ApiResponses(
@@ -62,10 +58,10 @@ public class UsersController {
             @ApiResponse(code = 500, message = "Internal error")
         })
     @GetMapping(value = "users/{telegramId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> getUserByTelegramId(
+    public ResponseEntity<UserModel> getUserByTelegramId(
         @ApiParam(name = "telegramId", value = "Telegram id", example = "dfdgra", required = true) @PathVariable(
             name = "telegramId") @NotBlank String telegramId) {
-        User telegramUser = userService.findUserByTelegramId(telegramId);
+        UserModel telegramUser = userService.findUserByTelegramId(telegramId);
         return new ResponseEntity<>(telegramUser, HttpStatus.OK);
     }
 
@@ -77,17 +73,11 @@ public class UsersController {
             @ApiResponse(code = 403, message = "Access denied"),
             @ApiResponse(code = 500, message = "Internal error")
         })
-    @GetMapping(value = "{platform}/users/{nickname}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> getUserByNicknameAndPlatform(
-        @ApiParam(
-            name = "platform",
-            value = "Platform identifier",
-            allowableValues = "PSN, ESHOP",
-            defaultValue = "PSN",
-            required = true) @PathVariable(name = "platform") @NotNull Platform platform,
+    @GetMapping(value = "/users/{nickname}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserModel> getUserByNicknameAndPlatform(
         @ApiParam(name = "nickname", value = "User nickname", example = "1", required = true) @PathVariable(
             name = "nickname") @NotNull @Positive String nickname) {
-        User user = userService.findUserByNickname(nickname);
+        UserModel user = userService.findUserByNickname(nickname);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -100,9 +90,9 @@ public class UsersController {
             @ApiResponse(code = 500, message = "Internal error")
         })
     @PostMapping(value = "users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> registerNewUser(
-        @ApiParam(name = "user", value = "User information", defaultValue = "1") @RequestBody @NotNull User user) {
-        User newUser = userService.addNewUser(user);
+    public ResponseEntity<UserModel> registerNewUser(
+        @ApiParam(name = "user", value = "User information", defaultValue = "1") @RequestBody @NotNull UserModel user) {
+        UserModel newUser = userService.addNewUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.OK);
     }
 
@@ -115,12 +105,12 @@ public class UsersController {
             @ApiResponse(code = 500, message = "Internal error")
         })
     @PutMapping(value = "users/{telegramId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> updateUser(
-        @ApiParam(name = "user", value = "User information", defaultValue = "1") @RequestBody @NotNull User user,
+    public ResponseEntity<UserModel> updateUser(
+        @ApiParam(name = "user", value = "User information", defaultValue = "1") @RequestBody @NotNull UserModel user,
         @ApiParam(name = "telegramId", value = "Telegram id", example = "errssgggeeq", required = true) @PathVariable(
             name = "telegramId") @NotBlank String telegramId) {
         user.setTelegramId(telegramId);
-        User updatedUser = userService.updateUser(user);
+        UserModel updatedUser = userService.updateUser(user);
         return new ResponseEntity<>(updatedUser, HttpStatus.NO_CONTENT);
     }
 }

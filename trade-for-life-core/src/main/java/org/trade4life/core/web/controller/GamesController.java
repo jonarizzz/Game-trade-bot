@@ -2,16 +2,13 @@ package org.trade4life.core.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
-import org.trade4life.core.model.Game;
-import org.trade4life.core.model.Platform;
+import org.trade4life.core.model.GameModel;
 import org.trade4life.core.service.GameService;
 import org.trade4life.core.service.game.GamePropositionResponse;
 import org.trade4life.core.service.game.GameResponse;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -33,7 +30,6 @@ import javax.validation.constraints.Positive;
 @Slf4j
 public class GamesController {
     private final GameService gameService;
-    private static final Logger LOGGER = LoggerFactory.getLogger(GamesController.class);
 
     @ApiOperation(value = "Get the list of game propositions by platform and title text part", nickname = "getGamePropositions")
     @ApiResponses(
@@ -42,22 +38,15 @@ public class GamesController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Error")
         })
-    @GetMapping(value = "{platform}/games/propositions", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/games/propositions", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GamePropositionResponse> getGameTitles(
-        @ApiParam(
-            name = "platform",
-            value = "Platform identifier",
-            allowableValues = "PSN, ESHOP",
-            defaultValue = "PSN",
-            required = true) @PathVariable(name = "platform") @NotNull Platform platform,
         @ApiParam(name = "titleText", value = "Game title text", example = "The Witcher 3") @RequestParam(
             name = "titleText",
             required = false) String titleText,
         @ApiParam(name = "propositionSize", value = "Number of title propositions (1..N)", defaultValue = "5") @RequestParam(
             name = "propositionSize",
             defaultValue = "5") @Positive Integer propositionSize) {
-        GamePropositionResponse gamePropositionResponse = gameService.findGameByTitlePartAndPlatform(titleText, platform,
-            propositionSize);
+        GamePropositionResponse gamePropositionResponse = gameService.findGameByTitlePart(titleText, propositionSize);
         return new ResponseEntity<>(gamePropositionResponse, HttpStatus.OK);
     }
 
@@ -68,14 +57,8 @@ public class GamesController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Error")
         })
-    @GetMapping(value = "{platform}/games", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/games", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GameResponse> getGames(
-        @ApiParam(
-            name = "platform",
-            value = "Platform identifier",
-            allowableValues = "PSN, ESHOP",
-            defaultValue = "PSN",
-            required = true) @PathVariable(name = "platform") @NotNull Platform platform,
         @ApiParam(name = "titlePart", value = "Game title part", example = "The Witche") @RequestParam(
             name = "titlePart",
             required = false) String titlePart,
@@ -84,7 +67,7 @@ public class GamesController {
         @ApiParam(name = "size", value = "Number of records per page (0..N)", defaultValue = "5") @RequestParam(
             name = "size") @NotNull @Positive Integer size) {
         Pageable pageable = PageRequest.of(page, size);
-        GameResponse gameResponse = gameService.findAllGamesByTitlePartAndPlatform(titlePart, platform, pageable);
+        GameResponse gameResponse = gameService.findAllGamesByTitlePart(titlePart, pageable);
         return new ResponseEntity<>(gameResponse, HttpStatus.OK);
     }
 
@@ -96,17 +79,11 @@ public class GamesController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Internal Error")
         })
-    @GetMapping(value = "{platform}/games/{gameId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Game> getGame(
-        @ApiParam(
-            name = "platform",
-            value = "Platform identifier",
-            allowableValues = "PSN, ESHOP",
-            defaultValue = "PSN",
-            required = true) @PathVariable(name = "platform") @NotNull Platform platform,
+    @GetMapping(value = "/games/{gameId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<GameModel> getGame(
         @ApiParam(name = "gameId", value = "Game id", example = "5f70948f17361f2260cb22aa", required = true) @PathVariable(
-            name = "gameId") @NotBlank String gameId) {
-        Game game = gameService.findGameById(gameId, platform);
+            name = "gameId") @NotBlank Long gameId) {
+        GameModel game = gameService.findGameById(gameId);
         return new ResponseEntity<>(game, HttpStatus.OK);
     }
 }
