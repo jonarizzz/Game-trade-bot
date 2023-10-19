@@ -5,6 +5,8 @@ import org.trade4life.core.service.offer.OfferGamesResponse;
 import org.springframework.data.domain.Pageable;
 
 public interface OfferService {
+
+    OfferGamesResponse findAll(Pageable pageable);
     OfferGamesResponse findOffersByTelegramId(String telegramId, Pageable pageable);
 
     OfferModel findOfferById(Long offerId);

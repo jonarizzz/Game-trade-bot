@@ -1,5 +1,4 @@
 import {getGamesFromCore} from "./getGamesFromCore";
-import {PSN_PLATFORM} from "../../../constants";
 import {GAMES_PAGE_SIZE} from "../constants/constants";
 import {updateGameMessage} from "./updateGameMessage";
 
@@ -9,7 +8,7 @@ export const previousGame = (ctx, paginatedItem) => {
 
         // If it is the first game on the first page
 
-        getGamesFromCore(PSN_PLATFORM, paginatedItem.totalPages - 1, GAMES_PAGE_SIZE).then(result => {
+        getGamesFromCore(paginatedItem.totalPages - 1, GAMES_PAGE_SIZE).then(result => {
 
             paginatedItem.games = result.data.offerGames;
             paginatedItem.page = paginatedItem.totalPages - 1;
@@ -26,7 +25,7 @@ export const previousGame = (ctx, paginatedItem) => {
 
         paginatedItem.page --;
 
-        getGamesFromCore(PSN_PLATFORM, paginatedItem.page, GAMES_PAGE_SIZE).then(result => {
+        getGamesFromCore(paginatedItem.page, GAMES_PAGE_SIZE).then(result => {
 
             paginatedItem.games = result.data.offerGames;
             paginatedItem.index = paginatedItem.games - 1;

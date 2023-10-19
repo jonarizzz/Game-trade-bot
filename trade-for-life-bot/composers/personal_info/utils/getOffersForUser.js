@@ -1,9 +1,8 @@
 import {GET_OFFERS_BY_USERNAME} from "../constants/constants";
-import {PSN_PLATFORM} from "../../../constants";
 import axios from "axios";
 
 export const getOffersForUser = (username, page) => {
-    const url = GET_OFFERS_BY_USERNAME(PSN_PLATFORM, username, page);
+    const url = GET_OFFERS_BY_USERNAME(username, page);
     const headers = {
         'Content-Type': 'application/json'
     }

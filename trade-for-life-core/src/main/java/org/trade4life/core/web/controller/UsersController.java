@@ -74,7 +74,7 @@ public class UsersController {
             @ApiResponse(code = 500, message = "Internal error")
         })
     @GetMapping(value = "/users/{nickname}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserModel> getUserByNicknameAndPlatform(
+    public ResponseEntity<UserModel> getUserByNickname(
         @ApiParam(name = "nickname", value = "User nickname", example = "1", required = true) @PathVariable(
             name = "nickname") @NotNull @Positive String nickname) {
         UserModel user = userService.findUserByNickname(nickname);

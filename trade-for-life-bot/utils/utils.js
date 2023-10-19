@@ -1,4 +1,4 @@
-import {POST_USER_URL, PSN_PLATFORM} from "../constants";
+import {POST_USER_URL} from "../constants";
 import axios from 'axios';
 
 export const postUserInfo = async (ctx) => {
@@ -11,7 +11,6 @@ export const postUserInfo = async (ctx) => {
         telegramId: userInfo.id,
         name: userInfo.first_name + userInfo.last_name,
         nickname: userInfo.username,
-        platform: PSN_PLATFORM
     }
     return axios.post(postUserUrl, data, {
         headers: headers

@@ -1,8 +1,8 @@
 import {Composer, Stage} from "telegraf";
-import {EXPLORE_BUTTON_TEXT, PSN_PLATFORM} from "../../constants";
+import {EXPLORE_BUTTON_TEXT} from "../../constants";
 import {exploreGame} from "./keyboards/exploreButtons";
 import {buyGameOffersMenu} from "./keyboards/offersBuyGameMenu";
-import {BUY_GAME_TEXT_PREFIX, GAMES_PAGE_SIZE} from "./constants/constants";
+import {BUY_GAME_TEXT_PREFIX, GAMES_PAGE_SIZE, NO_OFFERS} from "./constants/constants";
 import {sellGameFromExploreScene} from "./scenes/sellGame";
 import {getGamesFromCore} from "./utils/getGamesFromCore";
 import {nextGame} from "./utils/nextGame";
@@ -15,18 +15,23 @@ exploreGamesCommandsComposer.use(stage.middleware());
 let paginatedItem;
 
 exploreGamesCommandsComposer.hears(EXPLORE_BUTTON_TEXT, ctx => {
-    getGamesFromCore(PSN_PLATFORM, 0, GAMES_PAGE_SIZE).then(result => {
+    getGamesFromCore(0, GAMES_PAGE_SIZE).then(result => {
         paginatedItem = {
             totalPages: result.data.totalPages,
             games: result.data.offerGames,
             page: 0,
             index: 0,
         }
-        ctx.replyWithPhoto(paginatedItem.games[0].game.image,
-            {
-                reply_markup: exploreGame(paginatedItem.games[0].game.psnURL),
-                caption: paginatedItem.games[0].game.title
-            }).then();
+        console.log(paginatedItem)
+        if (paginatedItem.totalPages !== 0) {
+            ctx.replyWithPhoto(paginatedItem.games[0].game.image,
+                {
+                    reply_markup: exploreGame(paginatedItem.games[0].game.psnURL),
+                    caption: paginatedItem.games[0].game.title
+                }).then();
+        } else {
+            ctx.reply(NO_OFFERS).then();
+        }
     }).catch(error => {
         console.log("Request exception on explore ", error)
     });

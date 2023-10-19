@@ -22,6 +22,19 @@ public class OfferServiceImpl implements OfferService {
     private final ResponseMapper responseMapper;
 
     @Override
+    public OfferGamesResponse findAll(Pageable pageable) {
+        Page<OfferModel> publishedOffers = offerRepository.findAll(pageable);
+        var a = offerRepository.findAll();
+        Set<Long> gameIds = publishedOffers.getContent().stream()
+         .map(offerModel -> offerModel.getGame().getId())
+         .collect(Collectors.toSet());
+
+        Set<GameModel> games = gameRepository.findGamesByIdIn(gameIds);
+
+        return responseMapper.toOfferGamesResponse(games, publishedOffers, pageable);
+    }
+
+    @Override
     public OfferGamesResponse findOffersByTelegramId(String telegramId, Pageable pageable) {
         Page<OfferModel> publishedUserOffers = offerRepository.findOffersByUserTelegramId(telegramId, pageable);
         Set<Long> gameIds = publishedUserOffers.getContent().stream()

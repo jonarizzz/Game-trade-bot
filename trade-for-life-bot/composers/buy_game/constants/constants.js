@@ -6,8 +6,8 @@ export const GAMES_PROPOSITIONS_SIZE = 5;
 
 export const OFFERS_SIZE = 6;
 
-export const GET_GAME_BY_TITLE_PART_URL = (platform, titleText) => {
-    return `${BOT_CORE_URL}/api/${platform}/games/propositions?` +
+export const GET_GAME_BY_TITLE_PART_URL = (titleText) => {
+    return `${BOT_CORE_URL}/api/games/propositions?` +
         `titleText=${titleText}&propositionSize=${GAMES_PROPOSITIONS_SIZE}`;
 }
 
@@ -25,8 +25,8 @@ export const PROPOSITIONS_NOT_FOUND_TEXT = (titlePart) => {
 
 export const CHOOSE_FROM_THE_LIST_TEXT = 'Выберете из списка: ';
 
-export const GET_OFFERS_BY_GAME_ID = (platform, gameId) => {
-    return `${BOT_CORE_URL}/api/${platform}/offers/published?` +
+export const GET_OFFERS_BY_GAME_ID = (gameId) => {
+    return `${BOT_CORE_URL}/api/offers/published?` +
         `gameId=${gameId}&page=0&size=10`;
 }
 

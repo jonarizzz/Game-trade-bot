@@ -1,5 +1,4 @@
 import {getGamesFromCore} from "./getGamesFromCore";
-import {PSN_PLATFORM} from "../../../constants";
 import {GAMES_PAGE_SIZE} from "../constants/constants";
 import {updateGameMessage} from "./updateGameMessage";
 
@@ -10,7 +9,7 @@ export const nextGame = (ctx, paginatedItem) => {
 
         // If it is the last game on the last page
 
-        getGamesFromCore(PSN_PLATFORM, 0, GAMES_PAGE_SIZE).then(result => {
+        getGamesFromCore(0, GAMES_PAGE_SIZE).then(result => {
 
             paginatedItem.games = result.data.offerGames;
             paginatedItem.page = 0;
@@ -27,7 +26,7 @@ export const nextGame = (ctx, paginatedItem) => {
 
         paginatedItem.page ++;
 
-        getGamesFromCore(PSN_PLATFORM, paginatedItem.page, GAMES_PAGE_SIZE).then(result => {
+        getGamesFromCore(paginatedItem.page, GAMES_PAGE_SIZE).then(result => {
 
             paginatedItem.games = result.data.offerGames;
             paginatedItem.index = 0;

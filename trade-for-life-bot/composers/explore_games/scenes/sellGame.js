@@ -1,4 +1,4 @@
-import {CANCEL_BUTTON_TEXT, PSN_PLATFORM} from "../../../constants";
+import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
 import {COST_VALIDATION_ERROR_MESSAGE, ERROR_PLACING_OFFER, SELL_GAME_COST, SELL_GAME_TEXT} from "../constants/constants";
 import WizardScene from 'telegraf/scenes/wizard';
@@ -17,7 +17,7 @@ export const sellGameFromExploreScene = new WizardScene('sellGameFromExploreScen
 
         if (!isNaN(+gameCost.trim().replace(",", "."))){
 
-            placeOffer(PSN_PLATFORM, gameId, ctx.message.from.username, gameCost)
+            placeOffer(gameId, ctx.message.from.username, gameCost)
                 .catch(() => {
                     ctx.reply(ERROR_PLACING_OFFER);
                 })

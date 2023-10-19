@@ -14,11 +14,11 @@ export const FINAL_CONFIRMATION = (gameName, price) => {
     return `Объявление о продаже "${gameName}" за ${price}р. опубликовано!`
 };
 
-export const GET_GAMES_BY_PART_OF_TITLE_URL = (platform, gameName) => {
-    return `${BOT_CORE_URL}/api/${platform}/games?` +
+export const GET_GAMES_BY_PART_OF_TITLE_URL = (gameName) => {
+    return `${BOT_CORE_URL}/api/games?` +
         `titlePart=${gameName}&size=${GAMES_PROPOSITIONS_SIZE}&page=0`;
 };
 
-export const PUBLISH_NEW_OFFER_URL = (platform) => {
-    return `${BOT_CORE_URL}/api/${platform}/offers`;
+export const PUBLISH_NEW_OFFER_URL = () => {
+    return `${BOT_CORE_URL}/api/offers`;
 }

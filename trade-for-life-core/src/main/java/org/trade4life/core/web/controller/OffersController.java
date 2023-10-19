@@ -26,45 +26,26 @@ import javax.validation.constraints.Positive;
 @Api(value = "core-offers", tags = "core-offers")
 public class OffersController {
     private final OfferService offerService;
-    private static final Logger LOGGER = LoggerFactory.getLogger(GamesController.class);
 
-    @ApiOperation(value = "Get the list of published offers", nickname = "getPublishedOffers")
-    @ApiResponses(
-        value = {
-            @ApiResponse(code = 200, message = "Ok"),
-            @ApiResponse(code = 400, message = "Bad Request"),
-            @ApiResponse(code = 500, message = "Internal Error")
-        })
     @GetMapping(value = "offers/published", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OfferGamesResponse> getPublishedOffers(
-        @ApiParam(name = "gameId", value = "game id") @RequestParam(name = "gameId", required = false) String gameId,
-        @ApiParam(name = "userId", value = "User id") @RequestParam(name = "userId", required = false) String userId,
-        @ApiParam(name = "page", value = "Page number (0..N)", defaultValue = "0") @RequestParam(
-            name = "page") @NotNull Integer page,
-        @ApiParam(name = "size", value = "Number of records per page (0..N)", defaultValue = "5") @RequestParam(
-            name = "size") @NotNull @Positive Integer size) {
+        @RequestParam(name = "gameId", required = false) String gameId,
+        @RequestParam(name = "userId", required = false) String userId,
+        @RequestParam(name = "page") @NotNull Integer page,
+        @RequestParam(name = "size") @NotNull @Positive Integer size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        if (!gameId.isEmpty()) {
+        if (gameId != null && !gameId.isEmpty()) {
             OfferGamesResponse offers = offerService.findOfferByGameId(Long.getLong(gameId), pageable);
             return new ResponseEntity<>(offers, HttpStatus.OK);
-        } else if (!userId.isEmpty()) {
+        } else if (userId != null && !userId.isEmpty()) {
             OfferGamesResponse offers = offerService.findOffersByTelegramId(userId, pageable);
             return new ResponseEntity<>(offers, HttpStatus.OK);
         }
 
-        // 400 bad request
-        throw new RuntimeException();
+        return new ResponseEntity<>(offerService.findAll(pageable), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Publish new game offer", nickname = "publishOffer")
-    @ApiResponses(
-        value = {
-            @ApiResponse(code = 200, message = "Ok"),
-            @ApiResponse(code = 400, message = "Bad request"),
-            @ApiResponse(code = 403, message = "Access denied"),
-            @ApiResponse(code = 500, message = "Internal error")
-        })
     @PostMapping(value = "offers", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OfferModel> publishOffer(
         @ApiParam(name = "offer", value = "Offer") @RequestBody @NotNull OfferModel offer) {

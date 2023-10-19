@@ -1,10 +1,10 @@
 import {BOT_CORE_URL} from "../../../constants";
 
-export const GET_GAMES_URL = (platform, page, size) => {
-    return `${BOT_CORE_URL}/api/${platform}/offers/published?page=${page}&size=${size}`;
+export const GET_GAMES_URL = (page, size) => {
+    return `${BOT_CORE_URL}/api/offers/published?page=${page}&size=${size}`;
 }
-export const GET_NEW_OFFER_URL = (platform) => {
-    return `${BOT_CORE_URL}/api/${platform}/offers`;
+export const GET_NEW_OFFER_URL = () => {
+    return `${BOT_CORE_URL}/api/offers`;
 }
 export const NO_PIC_THUMB_URL = "https://www.logosurfer.com/wp-content/uploads/2018/03/PlayStation_logo.svg_.png";
 
@@ -14,6 +14,7 @@ export const PREVIOUS_GAME_BUTTON_TEXT = '⬅️ Предыдущая';
 export const SELL_GAME_BUTTON_TEXT = '🤝 Продать';
 export const TELEGRAM_LINK_PREFIX = "t.me/";
 export const THIS_GAME_IN_PSN_BUTTON_TEXT = '🎮 Это игра в PSN';
+export const NO_OFFERS = 'На данный момент ни одного предложения нет 😢';
 
 export const COST_VALIDATION_ERROR_MESSAGE = 'Введённое значение не является числом! Пожалуйста, введите правильное ' +
     'число!';

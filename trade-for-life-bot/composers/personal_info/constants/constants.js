@@ -18,8 +18,8 @@ export const MY_OFFERS_TITLE = "Мои объявления: ";
 
 export const MY_OFFERS_PAGE_SIZE = 3;
 
-export const GET_OFFERS_BY_USERNAME = (platform, gameId, page) => {
-    return `${BOT_CORE_URL}/api/${platform}/offers/published?` +
+export const GET_OFFERS_BY_USERNAME = (gameId, page) => {
+    return `${BOT_CORE_URL}/api/offers/published?` +
         `userId=${gameId}&page=${page}&size=${MY_OFFERS_PAGE_SIZE}`;
 }
 
@@ -50,6 +50,6 @@ export const CONFIRM_OFFER_DELETION = "Уверен, удалить предло
 export const ERROR_DELETING_OFFER = "При попытке удалить предложение возникла ошибка!";
 export const OFFER_DELETED = "Предложение удалено!";
 
-export const GET_UPDATE_OFFER_URL = (platform, offerId) => {
-    return `${BOT_CORE_URL}/api/${platform}/offers/${offerId}`;
+export const GET_UPDATE_OFFER_URL = (offerId) => {
+    return `${BOT_CORE_URL}/api/offers/${offerId}`;
 }

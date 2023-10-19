@@ -14,7 +14,7 @@ public interface GameRepository extends CrudRepository<GameModel, Long> {
 
     Page<GameModel> findAll(Pageable pageable);
 
-    Page<GameModel> findGamesByTitleContains(String titlePart, Pageable pageable);
+    Page<GameModel> findGamesByTitleContains(String title, Pageable pageable);
 
     Set<GameModel> findGamesByIdIn(Set<Long> gameId);
 
