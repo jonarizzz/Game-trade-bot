@@ -1,10 +1,10 @@
-package org.trade4life.core.web.controller;
+package org.trade4life.core.web.controller0;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.trade4life.core.web.dto.HelloRequest;
-import org.trade4life.core.web.dto.HelloResponse;
+import org.trade4life.core.web.dto0.HelloRequest;
+import org.trade4life.core.web.dto0.HelloResponse;
 
 @Controller
 @RequestMapping("/hello")

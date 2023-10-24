@@ -1,4 +1,4 @@
-package org.trade4life.core.web.controller;
+package org.trade4life.core.web.controller0;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.trade4life.core.model.UserModel;

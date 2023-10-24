@@ -1,4 +1,4 @@
-package org.trade4life.core.web.dto;
+package org.trade4life.core.web.dto0;
 
 import lombok.*;
 
