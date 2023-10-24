@@ -5,6 +5,7 @@ export const BYN_CURRENCY = " руб."
 export const POST_USER_URL = `${BOT_CORE_URL}/api/telegram/users`
 
 export const GREETING_TEXT = "Привет! Это - телеграм бот, предназначеный для обмена играми для PS4! Бот в разработке, " +
+    "а его создатели тренеруют на нём навыки программирования, " +
     "так что может не работать часть функций или все функции вообще. Enjoy!";
 
 export const CANCEL_BUTTON_TEXT = '❌ Cancel';
