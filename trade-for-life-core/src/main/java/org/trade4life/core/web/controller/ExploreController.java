@@ -14,20 +14,20 @@ public class ExploreController {
 
     @GetMapping("/games")
     public ResponseEntity<GetListOfGamesThatHaveOffersResponseDto> getListOfGamesThatHaveOffers(
-            @RequestParam Long userId,
-            @RequestParam Integer page,
-            @RequestParam Integer size,
-            @RequestParam String sortOrder) {
+        @RequestParam Long userId,
+        @RequestParam Integer page,
+        @RequestParam Integer size,
+        @RequestParam String sortOrder) {
         return null;
     }
 
     @GetMapping("/offers")
     public ResponseEntity<GetListOfOffersByGameResponseDto> getListOfOffersForGame(
-            @RequestParam Long userId,
-            @RequestParam Long gameId,
-            @RequestParam Integer page,
-            @RequestParam Integer size,
-            @RequestParam String sortOrder) {
+        @RequestParam Long userId,
+        @RequestParam Long gameId,
+        @RequestParam Integer page,
+        @RequestParam Integer size,
+        @RequestParam String sortOrder) {
         return null;
     }
 

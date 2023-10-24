@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public interface OfferRepository extends CrudRepository<OfferModel, Long> {
     Page<OfferModel> findAll(Pageable pageable);
+
     Page<OfferModel> findOffersByUserTelegramId(String telegramId, Pageable pageable);
 
     Page<OfferModel> findOffersByGameId(Long gameId, Pageable pageable);

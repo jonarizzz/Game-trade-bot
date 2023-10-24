@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.trade4life.core.web.dto.PaginatedResponseDto;
 import org.trade4life.core.web.dto.trading.GameDto;
-import org.trade4life.core.web.dto.trading.explore.GameWithOffersDto;
 
 import java.util.List;
 

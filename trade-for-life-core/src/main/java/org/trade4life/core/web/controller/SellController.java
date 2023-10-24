@@ -9,13 +9,12 @@ import org.trade4life.core.web.dto.trading.sell.PlaceOfferRequestDto;
 @RequestMapping("/api/v1/trading/sell")
 public class SellController {
 
-
     @GetMapping
     public ResponseEntity<GetListOfGamesByTitlePartResponseDto> getListOfGamesByTitlePart(
-            @RequestParam String titlePart,
-            @RequestParam Integer page,
-            @RequestParam Integer size,
-            @RequestParam String sortOrder) {
+        @RequestParam String titlePart,
+        @RequestParam Integer page,
+        @RequestParam Integer size,
+        @RequestParam String sortOrder) {
         return null;
     }
 

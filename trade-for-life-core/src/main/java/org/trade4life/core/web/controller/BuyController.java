@@ -14,21 +14,21 @@ public class BuyController {
 
     @GetMapping("/games")
     public ResponseEntity<GetListOfGamesThatHaveOffersByTitlePartResponseDto> getListOfGamesByTitlePart(
-            @RequestParam String titlePart,
-            @RequestParam Long userId,
-            @RequestParam Integer page,
-            @RequestParam Integer size,
-            @RequestParam String sortOrder) {
+        @RequestParam String titlePart,
+        @RequestParam Long userId,
+        @RequestParam Integer page,
+        @RequestParam Integer size,
+        @RequestParam String sortOrder) {
         return null;
     }
 
     @GetMapping("/offers")
     public ResponseEntity<GetListOfOffersByGameResponseDto> getListOfOffersByGame(
-            @RequestParam Long gameId,
-            @RequestParam Long userId,
-            @RequestParam Integer page,
-            @RequestParam Integer size,
-            @RequestParam String sortOrder) {
+        @RequestParam Long gameId,
+        @RequestParam Long userId,
+        @RequestParam Integer page,
+        @RequestParam Integer size,
+        @RequestParam String sortOrder) {
         return null;
     }
 

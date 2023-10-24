@@ -6,7 +6,6 @@ import org.trade4life.core.web.dto.login.SetUserRegionRequestDto;
 import org.trade4life.core.web.dto.profile.GetUserInfoResponseDto;
 import org.trade4life.core.web.dto.profile.GetUserOffersResponseDto;
 
-
 @RestController
 @RequestMapping("/api/v1/user")
 public class UserController {
@@ -17,7 +16,7 @@ public class UserController {
     }
 
     @PutMapping("/updateRegion")
-    public ResponseEntity<String> changeUserRegion(){
+    public ResponseEntity<String> changeUserRegion() {
         // TODO: plan first
         return null;
     }
@@ -29,25 +28,25 @@ public class UserController {
 
     @GetMapping("/offers")
     public ResponseEntity<GetUserOffersResponseDto> getUserOffers(
-            @RequestParam Long userId,
-            @RequestParam Integer page,
-            @RequestParam Integer size,
-            @RequestParam String sortOrder) {
+        @RequestParam Long userId,
+        @RequestParam Integer page,
+        @RequestParam Integer size,
+        @RequestParam String sortOrder) {
         return null;
     }
 
     @PutMapping("/offers")
     public ResponseEntity<String> changeOfferPrice(
-            @RequestParam Long userId,
-            @RequestParam Long offerId,
-            @RequestParam Double newPrice) {
+        @RequestParam Long userId,
+        @RequestParam Long offerId,
+        @RequestParam Double newPrice) {
         return null;
     }
 
     @DeleteMapping("/offers")
     public ResponseEntity<String> deleteOffer(
-            @RequestParam Long userId,
-            @RequestParam Long offerId) {
+        @RequestParam Long userId,
+        @RequestParam Long offerId) {
         return null;
     }
 }
