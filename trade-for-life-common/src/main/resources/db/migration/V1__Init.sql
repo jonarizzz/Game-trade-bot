@@ -1,3 +1,10 @@
+CREATE TABLE IF NOT EXISTS regions (
+     id int GENERATED ALWAYS AS IDENTITY,
+     name varchar(1025) NOT NULL ,
+     currency varchar(3) NOT NULL, -- Currency code (ex. USD, BYN, RUB)
+     PRIMARY KEY (id)
+);
+
 CREATE TABLE IF NOT EXISTS users (
      id int GENERATED ALWAYS AS IDENTITY,
      telegram_id text NOT NULL ,
@@ -5,15 +12,10 @@ CREATE TABLE IF NOT EXISTS users (
      name text,
      phone text,
      bio text,
+     region_id int,
      is_blocked boolean NOT NULL DEFAULT false,
-     PRIMARY KEY (id)
-);
-
-CREATE TABLE IF NOT EXISTS regions (
-     id int GENERATED ALWAYS AS IDENTITY,
-     name varchar(1025) NOT NULL ,
-     currency varchar(3) NOT NULL, -- Currency code (ex. USD, BYN, RUB)
-     PRIMARY KEY (id)
+     PRIMARY KEY (id),
+     CONSTRAINT fk_region FOREIGN KEY (region_id) REFERENCES regions(id)
 );
 
 CREATE TABLE IF NOT EXISTS platforms (
@@ -41,13 +43,11 @@ CREATE TABLE IF NOT EXISTS offers (
      id int GENERATED ALWAYS AS IDENTITY,
      game_id int NOT NULL,
      user_id int NOT NULL,
-     region_id int,
      type offer_type NOT NULL,
      description text,
      price numeric,
      is_active boolean NOT NULL DEFAULT true,
      PRIMARY KEY(id),
      CONSTRAINT fk_game FOREIGN KEY (game_id) REFERENCES games(id),
-     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id),
-     CONSTRAINT fk_region FOREIGN KEY (region_id) REFERENCES regions(id)
+     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
 );
