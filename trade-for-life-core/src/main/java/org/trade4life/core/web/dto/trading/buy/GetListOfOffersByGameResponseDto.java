@@ -1,9 +1,9 @@
 package org.trade4life.core.web.dto.trading.buy;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.SuperBuilder;
 import org.trade4life.core.web.dto.trading.OfferDto;
 import org.trade4life.core.web.dto.PaginatedResponseDto;
 
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Data
-@SuperBuilder
+@Builder
 @EqualsAndHashCode(callSuper = true)
 @Schema(title = "Get list of offers for game response DTO")
 public class GetListOfOffersByGameResponseDto extends PaginatedResponseDto {
