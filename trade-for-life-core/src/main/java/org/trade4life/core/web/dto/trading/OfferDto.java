@@ -4,26 +4,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.NotEmpty;
-
 @Data
 @Builder
 @Schema(title = "Offer DTO", description = "Stores Offer's information")
 public class OfferDto {
 
-    @NotEmpty
     @Schema(title = "Offer ID", example = "1")
     private Long id;
 
-    @NotEmpty
     @Schema(title = "User ID", example = "1")
     private Long userId;
 
-    @NotEmpty
     @Schema(title = "Seller's telegram username", example = "Azaratos")
     private String sellerTelegramUsername;
 
-    @NotEmpty
     @Schema(title = "Offer's price", example = "12.00")
     private Double price;
 

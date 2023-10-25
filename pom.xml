@@ -25,7 +25,6 @@
         <jacoco.version>0.8.7</jacoco.version>
         <surefire.version>2.22.0</surefire.version>
         <slf4j.version>2.0.7</slf4j.version>
-        <swagger2.version>3.0.0</swagger2.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <org.mapstruct.extensions.spring.version>0.1.2</org.mapstruct.extensions.spring.version>
         <org.lombok-mapstruct-binding.version>0.2.0</org.lombok-mapstruct-binding.version>

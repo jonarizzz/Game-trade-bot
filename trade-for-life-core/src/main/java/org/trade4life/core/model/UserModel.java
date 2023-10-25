@@ -32,6 +32,10 @@ public class UserModel {
     @Column(name = "bio")
     private String bio;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "region_id", referencedColumnName = "id")
+    private RegionModel region;
+
     @Column(name = "is_blocked")
     private boolean isBlocked;
 }

@@ -1,19 +1,16 @@
 package org.trade4life.core.service;
 
 import org.trade4life.core.model.UserModel;
-import org.trade4life.core.service.user.UserResponse;
-import org.springframework.data.domain.Pageable;
+import org.trade4life.core.web.dto.login.SetUserRegionRequestDto;
+
+import java.util.Optional;
 
 public interface UserService {
-    UserModel findUserById(Long id);
 
-    UserModel findUserByTelegramId(String telegramId);
+    Optional<UserModel> getUserByTelegramId(String telegramId);
 
-    UserModel findUserByNickname(String nickname);
+    UserModel saveUser(UserModel user);
 
-    UserResponse findUsers(Pageable pageable);
+    void setUserRegion(SetUserRegionRequestDto setUserRegionRequestDto);
 
-    UserModel addNewUser(UserModel user);
-
-    UserModel updateUser(UserModel user);
 }

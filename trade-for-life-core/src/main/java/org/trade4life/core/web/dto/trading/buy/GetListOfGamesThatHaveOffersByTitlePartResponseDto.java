@@ -1,10 +1,11 @@
-package org.trade4life.core.web.dto.trading.explore;
+package org.trade4life.core.web.dto.trading.buy;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.trade4life.core.web.dto.PaginatedResponseDto;
+import org.trade4life.core.web.dto.trading.GameDto;
 
 import java.util.List;
 
@@ -12,9 +13,9 @@ import java.util.List;
 @Builder
 @EqualsAndHashCode(callSuper = true)
 @Schema(title = "Get list of games that have offers request DTO")
-public class GetListOfGamesThatHaveOffersResponseDto extends PaginatedResponseDto {
+public class GetListOfGamesThatHaveOffersByTitlePartResponseDto extends PaginatedResponseDto {
 
     @Schema(title = "List of games with offers")
-    List<GameWithOffersDto> gamesWithOffers;
+    List<GameDto> gamesWithOffers;
 
 }
