@@ -25,10 +25,6 @@ public class OfferModel {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserModel user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "region_id", referencedColumnName = "id")
-    private RegionModel region;
-
     @Column(name = "type")
     private OfferType offerType;
 

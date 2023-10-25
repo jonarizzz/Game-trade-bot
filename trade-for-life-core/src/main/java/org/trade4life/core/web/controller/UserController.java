@@ -2,8 +2,10 @@ package org.trade4life.core.web.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.trade4life.core.service.UserService;
 import org.trade4life.core.web.dto.login.SetUserRegionRequestDto;
 import org.trade4life.core.web.dto.profile.GetUserInfoResponseDto;
 import org.trade4life.core.web.dto.profile.GetUserOffersResponseDto;
@@ -11,7 +13,10 @@ import org.trade4life.core.web.dto.profile.GetUserOffersResponseDto;
 @Tag(name = "3. User", description = "User controller")
 @RestController
 @RequestMapping("/api/v1/user")
+@RequiredArgsConstructor
 public class UserController {
+
+    private final UserService userService;
 
     @Operation(summary = "Endpoint for getting User's personal information")
     @GetMapping("/{userId}")
@@ -21,8 +26,9 @@ public class UserController {
 
     @Operation(summary = "Endpoint for assigning the region to a new User")
     @PostMapping("/setRegion")
-    public ResponseEntity<String> setUserRegion(@RequestBody SetUserRegionRequestDto userLoginRequestDto) {
-        return null;
+    public ResponseEntity<Object> setUserRegion(@RequestBody SetUserRegionRequestDto setUserRegionRequestDto) {
+        userService.setUserRegion(setUserRegionRequestDto);
+        return ResponseEntity.ok().build();
     }
 
     @Operation(summary = "Endpoint for changing User's region")

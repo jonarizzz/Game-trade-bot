@@ -1,5 +1,6 @@
 package org.trade4life.core.web.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.trade4life.core.web.dto.trading.sell.GetListOfGamesByTitlePartResponseDto;
@@ -7,6 +8,7 @@ import org.trade4life.core.web.dto.trading.sell.PlaceOfferRequestDto;
 
 @RestController
 @RequestMapping("/api/v1/trading/sell")
+@RequiredArgsConstructor
 public class SellController {
 
     @GetMapping
