@@ -1,8 +1,8 @@
-import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
 import {COST_VALIDATION_ERROR_MESSAGE, ERROR_PLACING_OFFER, SELL_GAME_COST, SELL_GAME_TEXT} from "../constants/constants";
 import WizardScene from 'telegraf/scenes/wizard';
 import {placeOffer} from "../utils/placeOffer";
+import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
 
 export const sellGameFromExploreScene = new WizardScene('sellGameFromExploreScene',
     (ctx) => {

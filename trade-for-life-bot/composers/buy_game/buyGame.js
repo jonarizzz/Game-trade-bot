@@ -1,8 +1,8 @@
 import {Composer, Stage} from "telegraf";
-import {BUY_GAMES_BUTTON_TEXT} from "../../constants";
 import {buyFindGameScene} from "./scenes/buyFindGameScene";
 import {GAMES_PROPOSITIONS_SIZE} from "./constants/constants";
 import {buyGameScene} from "./scenes/buyGameScene";
+import {BUY_GAMES_BUTTON_TEXT} from "../../constants/buttons";
 
 export const buyGameCommandsComposer = new Composer();
 const stage = new Stage([buyFindGameScene, buyGameScene]);

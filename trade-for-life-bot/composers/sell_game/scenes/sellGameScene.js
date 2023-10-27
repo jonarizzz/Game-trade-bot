@@ -3,9 +3,9 @@ import {
     WRITE_DOWN_COST_TEXT, ERROR_PLACING_OFFER
 } from "../constants/constants";
 import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
-import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import WizardScene from 'telegraf/scenes/wizard';
 import {publishNewOffer} from "../utils/publishNewOffer";
+import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
 
 
 export const sellGameScene = new WizardScene('sellGameScene',

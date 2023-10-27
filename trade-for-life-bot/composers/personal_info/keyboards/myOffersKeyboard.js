@@ -1,5 +1,5 @@
-import {BYN_CURRENCY} from "../../../constants";
 import {DELETE_OFFER, EDIT_OFFER, NEXT_PAGE, PREVIOUS_PAGE} from "../constants/constants";
+import {BYN_CURRENCY} from "../../../constants/messages";
 
 export const myOffersKeyboard = (gamesWithOffers) => {
     let offersAsButtons = [];

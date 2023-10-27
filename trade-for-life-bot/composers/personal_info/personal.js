@@ -1,5 +1,4 @@
 import {Composer, Stage} from "telegraf";
-import {PERSONAL_INFO_BUTTON_TEXT} from "../../constants";
 import {
     ARE_YOU_SURE,
     COUNTRY_NAME,
@@ -24,6 +23,7 @@ import {getOfferGameByOfferId} from "./utils/getOfferGameByOfferId";
 import {changeOffer} from "./utils/changeOffer";
 import {mainMenu} from "../../keyboard/keyboard";
 import {changeOfferCostScene} from "./scenes/changeOfferCostScene";
+import {PERSONAL_INFO_BUTTON_TEXT} from "../../constants/buttons";
 
 export const personalInfoCommandsComposer = new Composer();
 const stage = new Stage([changeOfferCostScene]);

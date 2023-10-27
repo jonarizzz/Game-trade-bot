@@ -1,5 +1,4 @@
 import {Composer, Stage} from "telegraf";
-import {EXPLORE_BUTTON_TEXT} from "../../constants";
 import {exploreGame} from "./keyboards/exploreButtons";
 import {buyGameOffersMenu} from "./keyboards/offersBuyGameMenu";
 import {BUY_GAME_TEXT_PREFIX, GAMES_PAGE_SIZE, NO_OFFERS} from "./constants/constants";
@@ -7,6 +6,7 @@ import {sellGameFromExploreScene} from "./scenes/sellGame";
 import {getGamesFromCore} from "./utils/getGamesFromCore";
 import {nextGame} from "./utils/nextGame";
 import {previousGame} from "./utils/previousGame";
+import {EXPLORE_BUTTON_TEXT} from "../../constants/buttons";
 
 export const exploreGamesCommandsComposer = new Composer();
 const stage = new Stage([sellGameFromExploreScene]);

@@ -1,4 +1,3 @@
-import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
 import WizardScene from 'telegraf/scenes/wizard';
 import {
@@ -7,6 +6,7 @@ import {
 } from "../constants/constants";
 import {getTheListOfGamesByName} from "../utils/getListOfGamesByName";
 import {proposedTitlesMenu} from "../keyboards/proposedTitlesMenu";
+import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
 
 
 export const findGameScene = new WizardScene('findGameScene',

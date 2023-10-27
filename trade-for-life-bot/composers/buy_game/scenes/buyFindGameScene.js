@@ -7,9 +7,9 @@ import {
     PROPOSITIONS_NOT_FOUND_TEXT,
     CHOOSE_FROM_THE_LIST_TEXT
 } from "../constants/constants";
-import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import {getListOfGamesByName} from "../utils/getListOfGamesByName";
 import {proposedTitlesMenu} from "../keyboards/proposedTitlesMenu";
+import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
 
 export const buyFindGameScene = new WizardScene('buyFindGameScene',
     (ctx) => {

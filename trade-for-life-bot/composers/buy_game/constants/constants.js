@@ -1,4 +1,4 @@
-import {BOT_CORE_URL} from "../../../constants";
+import {BOT_CORE_URL} from "../../../constants/resources";
 
 export const BUY_GAME_NAME_TEXT = 'Введите название (или часть названия игры), которую вы хотите купить';
 

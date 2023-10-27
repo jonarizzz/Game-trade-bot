@@ -1,4 +1,3 @@
-import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
 import WizardScene from 'telegraf/scenes/wizard';
 import {
@@ -8,6 +7,7 @@ import {
     OFFER_CHANGE_CANCELLED
 } from "../constants/constants";
 import {areYouSureChangePriceKeyboard} from "../keyboards/areYouSureChangePriceKeyboard";
+import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
 
 export const changeOfferCostScene = new WizardScene('changeOfferCostScene',
     (ctx) => {

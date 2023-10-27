@@ -1,4 +1,4 @@
-import {BOT_CORE_URL, BYN_CURRENCY} from "../../../constants";
+import {BOT_CORE_URL} from "../../../constants/resources";
 
 export const PERSONAL_INFO_HEADER = 'Личный кабинет: ';
 

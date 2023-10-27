@@ -1,4 +1,4 @@
-import {BOT_CORE_URL} from "../../../constants";
+import {BOT_CORE_URL} from "../../../constants/resources";
 
 export const GET_GAMES_URL = (page, size) => {
     return `${BOT_CORE_URL}/api/offers/published?page=${page}&size=${size}`;
