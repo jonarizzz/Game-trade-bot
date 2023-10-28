@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @Operation(summary = "Endpoint for assigning the region to a new User")
-    @PostMapping("/setRegion")
+    @PutMapping("/setRegion")
     public ResponseEntity<Object> setUserRegion(@RequestBody SetUserRegionRequestDto setUserRegionRequestDto) {
         userService.setUserRegion(setUserRegionRequestDto);
         return ResponseEntity.ok().build();

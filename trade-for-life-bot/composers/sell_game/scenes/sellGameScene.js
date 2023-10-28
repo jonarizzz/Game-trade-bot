@@ -2,10 +2,11 @@ import {
     COST_VALIDATION_ERROR_MESSAGE, FINAL_CONFIRMATION,
     WRITE_DOWN_COST_TEXT, ERROR_PLACING_OFFER
 } from "../constants/constants";
-import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
-import {CANCEL_BUTTON_TEXT} from "../../../constants";
 import WizardScene from 'telegraf/scenes/wizard';
 import {publishNewOffer} from "../utils/publishNewOffer";
+import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
+import {cancelMenu} from "../../login/keyboards/cancelMenu";
+import {mainMenu} from "../../login/keyboards/mainMenu";
 
 
 export const sellGameScene = new WizardScene('sellGameScene',

@@ -41,6 +41,12 @@ public class AuthServiceImpl implements AuthService {
             user = userService.saveUser(user);
         }
 
-        return mapper.toDto(user);
+        UserLoginResponseDto responseDto = mapper.toDto(user);
+
+        if (user.getRegion() == null) {
+            responseDto.setNew(true);
+        }
+
+        return responseDto;
     }
 }

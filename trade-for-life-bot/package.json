@@ -21,7 +21,9 @@
     "axios": "^0.20.0",
     "esm": "^3.2.25",
     "telegraf": "^3.38.0",
-    "telegraf-inline-menu": "^4.0.1"
+    "telegraf-inline-menu": "^4.0.1",
+    "pino": "^6.14.0",
+    "pino-pretty": "2.6.1"
   },
   "devDependencies": {}
 }

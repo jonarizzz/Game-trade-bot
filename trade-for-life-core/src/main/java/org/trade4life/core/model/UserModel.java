@@ -17,7 +17,7 @@ public class UserModel {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "telegram_id")
+    @Column(name = "telegram_id", unique = true)
     private String telegramId;
 
     @Column(name = "nickname")
