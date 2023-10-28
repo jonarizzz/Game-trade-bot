@@ -1,5 +1,4 @@
 import WizardScene from 'telegraf/scenes/wizard';
-import {cancelMenu, mainMenu} from "../../../keyboard/keyboard";
 import {
     BUY_GAME_NAME_TEXT,
     PROPOSITIONS_BACKEND_ERROR_LOG,
@@ -10,6 +9,8 @@ import {
 import {getListOfGamesByName} from "../utils/getListOfGamesByName";
 import {proposedTitlesMenu} from "../keyboards/proposedTitlesMenu";
 import {CANCEL_BUTTON_TEXT} from "../../../constants/buttons";
+import {cancelMenu} from "../../login/keyboards/cancelMenu";
+import {mainMenu} from "../../login/keyboards/mainMenu";
 
 export const buyFindGameScene = new WizardScene('buyFindGameScene',
     (ctx) => {

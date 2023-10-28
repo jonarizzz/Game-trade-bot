@@ -1,5 +1,4 @@
 import WizardScene from 'telegraf/scenes/wizard';
-import {mainMenu} from "../../../keyboard/keyboard";
 import {getOffersForGameById} from "../utils/getOffersForGameById";
 import {
     CHOOSE_SELLER_FROM_LIST_TEXT,
@@ -8,6 +7,7 @@ import {
     OFFERS_TEXT
 } from "../constants/constants";
 import {offersMenu} from "../keyboards/offersMenu";
+import {mainMenu} from "../../login/keyboards/mainMenu";
 
 export const buyGameScene = new WizardScene('buyGameScene',
     (ctx) => {

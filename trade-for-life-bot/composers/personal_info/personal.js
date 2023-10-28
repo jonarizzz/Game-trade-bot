@@ -21,9 +21,9 @@ import {deleteOffer} from "./utils/deleteOffer";
 import {getOfferFromPage} from "./utils/getOfferFromPage";
 import {getOfferGameByOfferId} from "./utils/getOfferGameByOfferId";
 import {changeOffer} from "./utils/changeOffer";
-import {mainMenu} from "../../keyboard/keyboard";
 import {changeOfferCostScene} from "./scenes/changeOfferCostScene";
 import {PERSONAL_INFO_BUTTON_TEXT} from "../../constants/buttons";
+import {mainMenu} from "../login/keyboards/mainMenu";
 
 export const personalInfoCommandsComposer = new Composer();
 const stage = new Stage([changeOfferCostScene]);
