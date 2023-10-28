@@ -1,22 +1,14 @@
 import Telegraf, {session} from 'telegraf';
-// import {login} from "./composers/login/Login";
 import {exploreGamesCommandsComposer} from "./composers/explore_games/exploreGames";
 import {sellGamesCommandsComposer} from "./composers/sell_game/sellGame";
 import {buyGameCommandsComposer} from "./composers/buy_game/buyGame";
 import {personalInfoCommandsComposer} from "./composers/personal_info/personal";
 import {loginComposer} from "./composers/login/login";
-import {TELEGRAM_BOT_KEY} from "./constants/params";
-import {pino} from "pino";
+import {TELEGRAM_BOT_KEY} from "./config/params";
 import {BOT_STARTED_LOG} from "./constants/logs";
+import {logger} from "./config/loggerConfig";
 
-export const logger = pino({
-    level: 'debug',
-    prettyPrint: {
-        colorize: true,
-        translateTime: true,
-        ignore: 'hostname'
-    }
-}).child({});
+
 
 const bot = new Telegraf(TELEGRAM_BOT_KEY);
 bot.use(session());
@@ -31,7 +23,7 @@ bot.catch(error => {
 });
 
 bot.start(() => {
-
+    // any additional logic when user is starting the bot goes here
 });
 
 bot.startPolling();

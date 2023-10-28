@@ -15,7 +15,7 @@ import {
     USER_LOGIN_IS_ATTEMPTED, USER_LOGIN_IS_FAILED,
     USER_LOGIN_IS_SUCCESSFUL
 } from "../../../constants/logs";
-import {logger} from "../../../app";
+import {logger} from "../../../config/loggerConfig";
 
 export const loginScene = new WizardScene('loginScene',
     (ctx) => {

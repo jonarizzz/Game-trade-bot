@@ -1,7 +1,7 @@
 import {Composer, Stage} from "telegraf";
 import {setUserRegion} from "./utils/setUserRegion";
 import {loginScene} from "./scenes/loginScene";
-import {REGION_PROPOSITION_SIZE} from "../../constants/params";
+import {REGION_PROPOSITION_SIZE} from "../../config/params";
 import {FIRST_LOGIN_SUCCESSFUL_TEXT, SET_USER_REGION_FAILED_TEXT} from "../../constants/messages";
 import {mainMenu} from "./keyboards/mainMenu";
 import {
@@ -9,7 +9,7 @@ import {
     USER_REGION_IS_SET,
     USER_STARTED_THE_BOT
 } from "../../constants/logs";
-import {logger} from "../../app";
+import {logger} from "../../config/loggerConfig";
 
 export const loginComposer = new Composer();
 const stage = new Stage([loginScene]);

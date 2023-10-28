@@ -1,4 +1,4 @@
-import {SUPPORT_EMAIL} from "./params";
+import {SUPPORT_EMAIL} from "../config/params";
 
 export const FIRST_LOGIN_GREETING_TEXT = "Привет! Это - телеграм бот, предназначеный для обмена играми для PS4! " +
     "Бот в разработке, так что может не работать часть функций или все функции вообще. \n" +
