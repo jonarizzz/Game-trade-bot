@@ -2,10 +2,10 @@ import {Composer, Stage} from "telegraf";
 import {setUserRegion} from "./utils/setUserRegion";
 import {loginScene} from "./scenes/loginScene";
 import {REGION_PROPOSITION_SIZE} from "../../constants/params";
-import {FIRST_LOGIN_SUCCESSFUL_TEXT} from "../../constants/messages";
+import {FIRST_LOGIN_SUCCESSFUL_TEXT, SET_USER_REGION_FAILED_TEXT} from "../../constants/messages";
 import {mainMenu} from "./keyboards/mainMenu";
 import {
-    SET_USER_REGION_IS_ATTEMPTED,
+    SET_USER_REGION_IS_ATTEMPTED, SET_USER_REGION_IS_FAILED,
     USER_REGION_IS_SET,
     USER_STARTED_THE_BOT
 } from "../../constants/logs";
@@ -33,8 +33,9 @@ for (let i = 0; i < REGION_PROPOSITION_SIZE; i++) {
                 logger.debug(USER_REGION_IS_SET(userId, regionId));
                 ctx.reply(FIRST_LOGIN_SUCCESSFUL_TEXT, mainMenu).then();
             })
-            .catch(() => {
-
+            .catch((error) => {
+                logger.error(SET_USER_REGION_IS_FAILED(userId, regionId, error));
+                ctx.reply(SET_USER_REGION_FAILED_TEXT).then();
             });
 
     });
