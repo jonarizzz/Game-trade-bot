@@ -23,6 +23,8 @@ public class RegionServiceImpl implements RegionService {
 
     @Override
     public GetRegionsResponseDto findAll() {
+        log.info("List of regions is requested");
+
         List<RegionModel> regions = (List<RegionModel>) repository.findAll();
         return GetRegionsResponseDto.builder()
             .regions(regions.stream()

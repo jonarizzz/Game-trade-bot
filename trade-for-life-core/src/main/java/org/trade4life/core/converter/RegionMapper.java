@@ -3,10 +3,7 @@ package org.trade4life.core.converter;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.trade4life.core.model.RegionModel;
-import org.trade4life.core.web.dto.login.GetRegionsResponseDto;
 import org.trade4life.core.web.dto.login.RegionDto;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface RegionMapper {

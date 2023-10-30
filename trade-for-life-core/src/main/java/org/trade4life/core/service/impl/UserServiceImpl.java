@@ -3,6 +3,7 @@ package org.trade4life.core.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.trade4life.core.exception.ResourceNotFoundException;
 import org.trade4life.core.model.RegionModel;
 import org.trade4life.core.model.UserModel;
 import org.trade4life.core.repository.UserRepository;
@@ -19,7 +20,6 @@ public class UserServiceImpl implements UserService {
 
     private final RegionService regionService;
     private final UserRepository repository;
-    
 
     @Override
     public Optional<UserModel> getUserByTelegramId(String telegramId) {
@@ -33,17 +33,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void setUserRegion(SetUserRegionRequestDto setUserRegionRequestDto) {
-        Optional<UserModel> userOptional = repository.findById(setUserRegionRequestDto.getUserId());
-        if (userOptional.isEmpty()) {
-            // TODO: 404 user not found
-            throw new RuntimeException();
-        }
-        
+        log.info("Setting user region is requested with the following parameters:" + setUserRegionRequestDto);
 
-        Optional<RegionModel> regionOptional = regionService.findRegionById(setUserRegionRequestDto.getRegionId());
+        Long userId = setUserRegionRequestDto.getUserId();
+        Long regionId = setUserRegionRequestDto.getRegionId();
+
+        Optional<UserModel> userOptional = repository.findById(userId);
+        if (userOptional.isEmpty()) {
+            throw new ResourceNotFoundException(userId.toString());
+        }
+
+        Optional<RegionModel> regionOptional = regionService.findRegionById(regionId);
         if (regionOptional.isEmpty()) {
-            // TODO: 404 region not found
-            throw new RuntimeException();
+            throw new ResourceNotFoundException(regionId.toString());
         }
 
         UserModel user = userOptional.get();
