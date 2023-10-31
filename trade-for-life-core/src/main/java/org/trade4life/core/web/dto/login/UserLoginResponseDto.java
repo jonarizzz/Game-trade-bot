@@ -13,6 +13,6 @@ public class UserLoginResponseDto {
     private Long userId;
 
     @Schema(title = "New user flag", example = "true")
-    private boolean isNew;
+    private Boolean isNew;
 
 }
