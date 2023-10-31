@@ -1,9 +1,11 @@
 package org.trade4life.core.fixture;
 
 import org.trade4life.core.model.UserModel;
+import org.trade4life.core.web.dto.login.SetUserRegionRequestDto;
 import org.trade4life.core.web.dto.login.UserLoginRequestDto;
 import org.trade4life.core.web.dto.login.UserLoginResponseDto;
 
+import static org.trade4life.core.fixture.RegionFixture.REGION_ID;
 import static org.trade4life.core.fixture.RegionFixture.regionModel;
 
 public class UserFixture {
@@ -36,16 +38,17 @@ public class UserFixture {
         return userModelWithoutRegion(USER_ID, USER_TELEGRAM_ID, USER_NICKNAME, USER_NAME, USER_PHONE, USER_BIO);
     }
 
-    public static UserModel userModelWithoutRegion(Long id, String telegramId, String nickname, String name, String phone, String bio) {
+    public static UserModel userModelWithoutRegion(Long id, String telegramId, String nickname, String name, String phone,
+        String bio) {
         return UserModel.builder()
-                .id(id)
-                .telegramId(telegramId)
-                .nickname(nickname)
-                .name(name)
-                .phone(phone)
-                .bio(bio)
-                .isBlocked(false)
-                .build();
+            .id(id)
+            .telegramId(telegramId)
+            .nickname(nickname)
+            .name(name)
+            .phone(phone)
+            .bio(bio)
+            .isBlocked(false)
+            .build();
     }
 
     public static UserLoginRequestDto userLoginRequestDto() {
@@ -69,6 +72,17 @@ public class UserFixture {
         return UserLoginResponseDto.builder()
             .userId(userId)
             .isNew(isNew)
+            .build();
+    }
+
+    public static SetUserRegionRequestDto setUserRegionRequestDto() {
+        return setUserRegionRequestDto(USER_ID, REGION_ID);
+    }
+
+    public static SetUserRegionRequestDto setUserRegionRequestDto(Long userId, Long regionId) {
+        return SetUserRegionRequestDto.builder()
+            .userId(userId)
+            .regionId(regionId)
             .build();
     }
 
