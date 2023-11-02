@@ -30,7 +30,7 @@ export const loginScene = new WizardScene('loginScene',
                 let userId = loginResult.data.userId;
                 ctx.session.userId = userId;
 
-                if (loginResult.data.new === true) {
+                if (loginResult.data.isNew === true) {
                     logger.debug(USER_FIRST_TIME_LOGIN_IS_SUCCESSFUL(userNickname, userTelegramId, userId));
                     getListOfRegions()
                         .then(regionsResponse => {
