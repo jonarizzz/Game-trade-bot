@@ -4,9 +4,13 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+  banner:
+    location: startup-banner.txt
 
 springdoc:
   swagger-ui:
     disable-swagger-default-url: true
     path: "/swagger"
     tags-sorter: alpha
+
+logging.level.org.springframework.web: DEBUG

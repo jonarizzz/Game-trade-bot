@@ -2,14 +2,14 @@ package org.trade4life.core.converter;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 import org.trade4life.core.model.RegionModel;
-import org.trade4life.core.web.dto.login.GetRegionsResponseDto;
 import org.trade4life.core.web.dto.login.RegionDto;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface RegionMapper {
+
+    RegionMapper INSTANCE = Mappers.getMapper(RegionMapper.class);
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "name", target = "name")

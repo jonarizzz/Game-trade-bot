@@ -22,7 +22,6 @@ public class AuthController {
     @Operation(summary = "Endpoint for creating a new User or getting an existing one")
     @PostMapping("/login")
     public ResponseEntity<UserLoginResponseDto> login(@RequestBody UserLoginRequestDto userLoginRequestDto) {
-        log.info("Login attempt for user: " + userLoginRequestDto);
         UserLoginResponseDto responseDto = authService.login(userLoginRequestDto);
         return ResponseEntity.ok(responseDto);
     }

@@ -23,6 +23,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public UserLoginResponseDto login(UserLoginRequestDto loginRequestDto) {
 
+        log.info("Login attempt with the following parameters: " + loginRequestDto);
         Optional<UserModel> userModelOptional = userService.getUserByTelegramId(loginRequestDto.getTelegramId());
 
         if (userModelOptional.isEmpty()) {
@@ -30,7 +31,8 @@ public class AuthServiceImpl implements AuthService {
             user = userService.saveUser(user);
 
             UserLoginResponseDto responseDto = mapper.toDto(user);
-            responseDto.setNew(true);
+            responseDto.setIsNew(true);
+
             return responseDto;
         }
 
@@ -44,7 +46,7 @@ public class AuthServiceImpl implements AuthService {
         UserLoginResponseDto responseDto = mapper.toDto(user);
 
         if (user.getRegion() == null) {
-            responseDto.setNew(true);
+            responseDto.setIsNew(true);
         }
 
         return responseDto;
