@@ -12,12 +12,14 @@ public interface RegionMapper {
     RegionMapper INSTANCE = Mappers.getMapper(RegionMapper.class);
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "name", target = "name")
+    @Mapping(source = "nameEn", target = "nameEn")
+    @Mapping(source = "nameRu", target = "nameRu")
     @Mapping(source = "currency", target = "currency")
     RegionDto toDto(RegionModel regionModel);
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "name", target = "name")
+    @Mapping(source = "nameEn", target = "nameEn")
+    @Mapping(source = "nameRu", target = "nameRu")
     @Mapping(source = "currency", target = "currency")
     RegionModel toModel(RegionDto regionDto);
 }

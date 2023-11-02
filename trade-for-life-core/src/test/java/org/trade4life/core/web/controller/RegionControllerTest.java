@@ -42,10 +42,10 @@ class RegionControllerTest {
 
     @Test
     public void shouldGetListOfRegions() throws Exception {
-        RegionDto firstRegion = RegionDto.builder().id(1L).name("Minsk").currency("BYN").build();
-        RegionDto secondRegion = RegionDto.builder().id(2L).name("Brest").currency("BYN").build();
-        RegionDto thirdRegion = RegionDto.builder().id(3L).name("Warsaw").currency("PLN").build();
-        RegionDto forthRegion = RegionDto.builder().id(4L).name("Moscow").currency("RUB").build();
+        RegionDto firstRegion = RegionDto.builder().id(1L).nameEn("Minsk").nameRu("Минск").currency("BYN").build();
+        RegionDto secondRegion = RegionDto.builder().id(2L).nameEn("Brest").nameRu("Брест").currency("BYN").build();
+        RegionDto thirdRegion = RegionDto.builder().id(3L).nameEn("Warsaw").nameRu("Варшава").currency("PLN").build();
+        RegionDto forthRegion = RegionDto.builder().id(4L).nameEn("Moscow").nameRu("Москва").currency("RUB").build();
         GetRegionsResponseDto responseDto = GetRegionsResponseDto.builder()
             .regions(List.of(firstRegion, secondRegion, thirdRegion, forthRegion))
             .build();
@@ -57,16 +57,23 @@ class RegionControllerTest {
             .andExpect(status().is2xxSuccessful())
             .andExpect(jsonPath("$.regions").isArray())
             .andExpect(jsonPath("$.regions[0].id").value("1"))
-            .andExpect(jsonPath("$.regions[0].name").value("Minsk"))
+            .andExpect(jsonPath("$.regions[0].nameEn").value("Minsk"))
+            .andExpect(jsonPath("$.regions[0].nameRu").value("Минск"))
             .andExpect(jsonPath("$.regions[0].currency").value("BYN"))
+
             .andExpect(jsonPath("$.regions[1].id").value("2"))
-            .andExpect(jsonPath("$.regions[1].name").value("Brest"))
+            .andExpect(jsonPath("$.regions[1].nameEn").value("Brest"))
+            .andExpect(jsonPath("$.regions[1].nameRu").value("Брест"))
             .andExpect(jsonPath("$.regions[1].currency").value("BYN"))
+
             .andExpect(jsonPath("$.regions[2].id").value("3"))
-            .andExpect(jsonPath("$.regions[2].name").value("Warsaw"))
+            .andExpect(jsonPath("$.regions[2].nameEn").value("Warsaw"))
+            .andExpect(jsonPath("$.regions[2].nameRu").value("Варшава"))
             .andExpect(jsonPath("$.regions[2].currency").value("PLN"))
+
             .andExpect(jsonPath("$.regions[3].id").value("4"))
-            .andExpect(jsonPath("$.regions[3].name").value("Moscow"))
+            .andExpect(jsonPath("$.regions[3].nameEn").value("Moscow"))
+            .andExpect(jsonPath("$.regions[3].nameRu").value("Москва"))
             .andExpect(jsonPath("$.regions[3].currency").value("RUB"));
     }
 
