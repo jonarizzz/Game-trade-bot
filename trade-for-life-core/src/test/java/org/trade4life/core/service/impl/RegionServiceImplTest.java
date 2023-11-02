@@ -42,10 +42,10 @@ class RegionServiceImplTest {
 
     @Test
     public void shouldFindAllUsingRepositoryAndMapToDto() {
-        RegionModel firstRegion = RegionModel.builder().id(1L).name("Minsk").currency("BYN").build();
-        RegionModel secondRegion = RegionModel.builder().id(2L).name("Brest").currency("BYN").build();
-        RegionModel thirdRegion = RegionModel.builder().id(3L).name("Warsaw").currency("PLN").build();
-        RegionModel forthRegion = RegionModel.builder().id(4L).name("Moscow").currency("RUB").build();
+        RegionModel firstRegion = RegionModel.builder().id(1L).nameEn("Minsk").nameRu("Минск").currency("BYN").build();
+        RegionModel secondRegion = RegionModel.builder().id(2L).nameEn("Brest").nameRu("Брест").currency("BYN").build();
+        RegionModel thirdRegion = RegionModel.builder().id(3L).nameEn("Warsaw").nameRu("Варшава").currency("PLN").build();
+        RegionModel forthRegion = RegionModel.builder().id(4L).nameEn("Moscow").nameRu("Москва").currency("RUB").build();
         List<RegionModel> regionList = List.of(firstRegion, secondRegion, thirdRegion, forthRegion);
 
         when(repository.findAll()).thenReturn(regionList);

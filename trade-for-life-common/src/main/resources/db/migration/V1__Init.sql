@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS regions (
      id int GENERATED ALWAYS AS IDENTITY,
-     name varchar(1025) NOT NULL ,
+     name_en varchar(1025) NOT NULL,
+     name_ru varchar(1025) NOT NULL,
      currency varchar(3) NOT NULL, -- Currency code (ex. USD, BYN, RUB)
      PRIMARY KEY (id)
 );

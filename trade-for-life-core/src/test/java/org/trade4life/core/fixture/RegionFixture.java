@@ -6,17 +6,19 @@ import org.trade4life.core.web.dto.login.RegionDto;
 public class RegionFixture {
 
     public static final Long REGION_ID = 5L;
-    public static final String REGION_NAME = "USSR";
+    public static final String REGION_NAME_EN = "USSR";
+    public static final String REGION_NAME_RU = "СССР";
     public static final String REGION_CURRENCY = "RUB";
 
     public static RegionModel regionModel() {
-        return regionModel(REGION_ID, REGION_NAME, REGION_CURRENCY);
+        return regionModel(REGION_ID, REGION_NAME_EN, REGION_NAME_RU, REGION_CURRENCY);
     }
 
-    public static RegionModel regionModel(Long id, String name, String currency) {
+    public static RegionModel regionModel(Long id, String nameEn, String nameRu, String currency) {
         return RegionModel.builder()
             .id(id)
-            .name(name)
+            .nameEn(nameEn)
+            .nameRu(nameRu)
             .currency(currency)
             .build();
     }
@@ -24,7 +26,8 @@ public class RegionFixture {
     public static RegionDto regionDto() {
         return RegionDto.builder()
             .id(REGION_ID)
-            .name(REGION_NAME)
+            .nameEn(REGION_NAME_EN)
+            .nameRu(REGION_NAME_RU)
             .currency(REGION_CURRENCY)
             .build();
     }

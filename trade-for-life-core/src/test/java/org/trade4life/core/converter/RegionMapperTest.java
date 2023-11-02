@@ -21,7 +21,8 @@ class RegionMapperTest {
         RegionDto result = RegionMapper.INSTANCE.toDto(regionModel());
 
         assertThat(result.getId()).isEqualTo(REGION_ID);
-        assertThat(result.getName()).isEqualTo(REGION_NAME);
+        assertThat(result.getNameEn()).isEqualTo(REGION_NAME_EN);
+        assertThat(result.getNameRu()).isEqualTo(REGION_NAME_RU);
         assertThat(result.getCurrency()).isEqualTo(REGION_CURRENCY);
     }
 
@@ -30,7 +31,8 @@ class RegionMapperTest {
         RegionModel result = RegionMapper.INSTANCE.toModel(regionDto());
 
         assertThat(result.getId()).isEqualTo(REGION_ID);
-        assertThat(result.getName()).isEqualTo(REGION_NAME);
+        assertThat(result.getNameEn()).isEqualTo(REGION_NAME_EN);
+        assertThat(result.getNameRu()).isEqualTo(REGION_NAME_RU);
         assertThat(result.getCurrency()).isEqualTo(REGION_CURRENCY);
     }
 

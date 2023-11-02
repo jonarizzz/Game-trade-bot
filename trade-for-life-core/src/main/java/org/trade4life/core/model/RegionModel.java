@@ -17,8 +17,11 @@ public class RegionModel {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "name_en")
+    private String nameEn;
+
+    @Column(name = "name_ru")
+    private String nameRu;
 
     @Column(name = "currency")
     private String currency;

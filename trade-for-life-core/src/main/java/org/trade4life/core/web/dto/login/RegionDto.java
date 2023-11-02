@@ -12,8 +12,11 @@ public class RegionDto {
     @Schema(title = "Region ID", example = "1")
     private Long id;
 
-    @Schema(title = "Region name", example = "Belarus")
-    private String name;
+    @Schema(title = "Region name in English", example = "Minsk")
+    private String nameEn;
+
+    @Schema(title = "Region name in Russian", example = "Минск")
+    private String nameRu;
 
     @Schema(title = "Region currency", example = "BYN")
     private String currency;
