@@ -28,7 +28,9 @@ export const loginScene = new WizardScene('loginScene',
         loginUser(userInfo)
             .then(loginResult => {
                 let userId = loginResult.data.userId;
+
                 ctx.session.userId = userId;
+                ctx.session.userNickname = userNickname;
 
                 if (loginResult.data.isNew === true) {
                     logger.debug(USER_FIRST_TIME_LOGIN_IS_SUCCESSFUL(userNickname, userTelegramId, userId));
@@ -37,10 +39,12 @@ export const loginScene = new WizardScene('loginScene',
                             let regions = regionsResponse.data.regions;
                             ctx.session.regions = regions;
                             ctx.reply(FIRST_LOGIN_GREETING_TEXT, {reply_markup: regionsMenu(regions)});
+                            return ctx.scene.leave();
                         })
                         .catch((error) => {
                             logger.error(GET_LIST_OF_REGIONS_IS_FAILED(error));
                             ctx.reply(GET_LIST_OF_REGIONS_FAILED_TEXT);
+                            return ctx.scene.leave();
                         });
 
                 } else {
@@ -51,8 +55,8 @@ export const loginScene = new WizardScene('loginScene',
             .catch(error => {
                 logger.error(USER_LOGIN_IS_FAILED(userNickname, userTelegramId, error));
                 ctx.reply(LOGIN_FAILED_TEXT);
+                return ctx.scene.leave();
             })
-        return ctx.scene.leave();
     }
 
 )

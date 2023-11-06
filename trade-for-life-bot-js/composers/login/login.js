@@ -25,13 +25,16 @@ for (let i = 0; i < REGION_PROPOSITION_SIZE; i++) {
 
         let userId = ctx.session.userId;
         let regionId = ctx.session.regions.at(i).id;
+        let userNickname = ctx.session.userNickname;
+        let regionNameRu = ctx.session.regions.at(i).nameRu;
+        let regionCurrencyCode = ctx.session.regions.at(i).currency;
 
         logger.debug(SET_USER_REGION_IS_ATTEMPTED(userId, regionId));
 
         setUserRegion(userId, regionId)
             .then(() => {
                 logger.debug(USER_REGION_IS_SET(userId, regionId));
-                ctx.reply(FIRST_LOGIN_SUCCESSFUL_TEXT, mainMenu).then();
+                ctx.reply(FIRST_LOGIN_SUCCESSFUL_TEXT(userNickname, regionNameRu, regionCurrencyCode), mainMenu).then();
             })
             .catch((error) => {
                 logger.error(SET_USER_REGION_IS_FAILED(userId, regionId, error));

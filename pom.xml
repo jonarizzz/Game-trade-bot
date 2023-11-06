@@ -31,6 +31,7 @@
     </properties>
 
     <modules>
+        <module>trade-for-life-bot</module>
         <module>trade-for-life-core</module>
         <module>trade-for-life-stealer</module>
         <module>trade-for-life-common</module>

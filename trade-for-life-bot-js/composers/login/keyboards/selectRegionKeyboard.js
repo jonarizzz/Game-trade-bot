@@ -5,7 +5,7 @@ export const regionsMenu = (regions) => {
     for (let i = 0; i < regions.length; i++) {
         let region = regions[i];
         regionsAsButtons.push(
-            [Markup.callbackButton(region.name,'userRegionSelected' + i, false)]
+            [Markup.callbackButton(region.nameRu,'userRegionSelected' + i, false)]
         )
     }
     return {

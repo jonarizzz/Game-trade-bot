@@ -8,8 +8,6 @@ import {TELEGRAM_BOT_KEY} from "./config/params";
 import {BOT_STARTED_LOG} from "./constants/logs";
 import {logger} from "./config/loggerConfig";
 
-
-
 const bot = new Telegraf(TELEGRAM_BOT_KEY);
 bot.use(session());
 bot.use(loginComposer);

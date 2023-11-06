@@ -1,0 +1,12 @@
+bot:
+  telegram:
+    # TODO: to secrets
+    key: 960038286:AAGZZHaFHCj1VCxvkBhGTLAYYWxd7DT7JNk
+  core:
+    url:
+      base: http://localhost:8080
+      login: ${bot.core.url.base}/api/v1/auth/login
+      regions: ${bot.core.url.base}/api/v1/region
+  support:
+    email: trade4lifemailbox@gmail.com
+
