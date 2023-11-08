@@ -10,3 +10,5 @@ bot:
   support:
     email: trade4lifemailbox@gmail.com
 
+server:
+  port: 8081

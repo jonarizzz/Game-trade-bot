@@ -1,4 +1,4 @@
-package org.trade4life.bot;
+package org.trade4life.bot.handlers;
 
 import org.telegram.abilitybots.api.sender.SilentSender;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
