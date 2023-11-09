@@ -13,4 +13,8 @@ public class Messages {
         return String.format("С возвращением, %s! Приятного пользования!", userNickname);
     }
 
+    public static final String FIRST_LOGIN_SUCCESSFUL_TEXT = "Отлично!\nВы успешно зарегестрировались в боте! Приятного пользования!";
+
+
+
 }

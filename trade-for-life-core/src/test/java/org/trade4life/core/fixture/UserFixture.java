@@ -11,7 +11,7 @@ import static org.trade4life.core.fixture.RegionFixture.regionModel;
 public class UserFixture {
 
     public static final Long USER_ID = 1998L;
-    public static final String USER_TELEGRAM_ID = "11002299338844775566";
+    public static final Long USER_TELEGRAM_ID = 1100229933L;
     public static final String USER_NICKNAME = "MrTester";
     public static final String USER_NAME = "Mister Tester";
     public static final String USER_PHONE = "+375(44)7724304";
@@ -21,7 +21,7 @@ public class UserFixture {
         return userModel(USER_ID, USER_TELEGRAM_ID, USER_NICKNAME, USER_NAME, USER_PHONE, USER_BIO);
     }
 
-    public static UserModel userModel(Long id, String telegramId, String nickname, String name, String phone, String bio) {
+    public static UserModel userModel(Long id, Long telegramId, String nickname, String name, String phone, String bio) {
         return UserModel.builder()
             .id(id)
             .telegramId(telegramId)
@@ -38,7 +38,7 @@ public class UserFixture {
         return userModelWithoutRegion(USER_ID, USER_TELEGRAM_ID, USER_NICKNAME, USER_NAME, USER_PHONE, USER_BIO);
     }
 
-    public static UserModel userModelWithoutRegion(Long id, String telegramId, String nickname, String name, String phone,
+    public static UserModel userModelWithoutRegion(Long id, Long telegramId, String nickname, String name, String phone,
         String bio) {
         return UserModel.builder()
             .id(id)
@@ -55,7 +55,7 @@ public class UserFixture {
         return userLoginRequestDto(USER_TELEGRAM_ID, USER_NICKNAME, USER_NAME, USER_PHONE);
     }
 
-    public static UserLoginRequestDto userLoginRequestDto(String telegramId, String nickname, String name, String phone) {
+    public static UserLoginRequestDto userLoginRequestDto(Long telegramId, String nickname, String name, String phone) {
         return UserLoginRequestDto.builder()
             .telegramId(telegramId)
             .nickname(nickname)
@@ -76,12 +76,12 @@ public class UserFixture {
     }
 
     public static SetUserRegionRequestDto setUserRegionRequestDto() {
-        return setUserRegionRequestDto(USER_ID, REGION_ID);
+        return setUserRegionRequestDto(USER_TELEGRAM_ID, REGION_ID);
     }
 
-    public static SetUserRegionRequestDto setUserRegionRequestDto(Long userId, Long regionId) {
+    public static SetUserRegionRequestDto setUserRegionRequestDto(Long userTelegramId, Long regionId) {
         return SetUserRegionRequestDto.builder()
-            .userId(userId)
+            .userTelegramId(userTelegramId)
             .regionId(regionId)
             .build();
     }

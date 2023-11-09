@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS regions (
 
 CREATE TABLE IF NOT EXISTS users (
      id int GENERATED ALWAYS AS IDENTITY,
-     telegram_id text NOT NULL UNIQUE ,
+     telegram_id int NOT NULL UNIQUE ,
      nickname text,
      name text,
      phone text,

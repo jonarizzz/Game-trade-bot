@@ -20,7 +20,6 @@ import static org.trade4life.bot.keyboard.ReplyMarkupKeyboardFactory.selectRegio
 public class LoginHandler {
 
     private final SilentSender sender;
-
     private final AuthService authService;
     private final RegionService regionService;
 

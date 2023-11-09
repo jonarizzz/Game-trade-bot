@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class UserLoginRequestDto {
 
     @Schema(title = "User's telegram ID", example = "1122334455")
-    private String telegramId;
+    private Long telegramId;
 
     @Schema(title = "User's telegram nickname", example = "Azaratos")
     private String nickname;

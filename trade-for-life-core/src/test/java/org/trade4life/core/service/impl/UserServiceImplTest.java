@@ -64,7 +64,7 @@ class UserServiceImplTest {
 
     @Test
     public void shouldSetUserRegionUsingRepository() {
-        when(repository.findById(eq(USER_ID))).thenReturn(Optional.of(userModel()));
+        when(repository.findUserByTelegramId(eq(USER_TELEGRAM_ID))).thenReturn(Optional.of(userModel()));
         when(regionService.findRegionById(eq(REGION_ID))).thenReturn(Optional.of(regionModel()));
         ArgumentCaptor<UserModel> userModelCaptor = ArgumentCaptor.forClass(UserModel.class);
         when(repository.save(any())).thenReturn(userModel());
@@ -80,14 +80,14 @@ class UserServiceImplTest {
 
     @Test
     public void shouldThrowIfUserForSetRegionDoesNotExist() {
-        when(repository.findById(eq(USER_ID))).thenReturn(Optional.empty());
+        when(repository.findUserByTelegramId(eq(USER_TELEGRAM_ID))).thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class, () -> userService.setUserRegion(setUserRegionRequestDto()));
     }
 
     @Test
     public void shouldThrowIfRegionForSetRegionDoesNotExist() {
-        when(repository.findById(eq(USER_ID))).thenReturn(Optional.of(userModel()));
+        when(repository.findUserByTelegramId(eq(USER_TELEGRAM_ID))).thenReturn(Optional.of(userModel()));
         when(regionService.findRegionById(eq(REGION_ID))).thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class, () -> userService.setUserRegion(setUserRegionRequestDto()));

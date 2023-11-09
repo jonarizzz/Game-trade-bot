@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repository;
 
     @Override
-    public Optional<UserModel> getUserByTelegramId(String telegramId) {
+    public Optional<UserModel> getUserByTelegramId(Long telegramId) {
         return repository.findUserByTelegramId(telegramId);
     }
 
@@ -35,12 +35,12 @@ public class UserServiceImpl implements UserService {
     public void setUserRegion(SetUserRegionRequestDto setUserRegionRequestDto) {
         log.info("Setting user region is requested with the following parameters:" + setUserRegionRequestDto);
 
-        Long userId = setUserRegionRequestDto.getUserId();
+        Long userTelegramId = setUserRegionRequestDto.getUserTelegramId();
         Long regionId = setUserRegionRequestDto.getRegionId();
 
-        Optional<UserModel> userOptional = repository.findById(userId);
+        Optional<UserModel> userOptional = repository.findUserByTelegramId(userTelegramId);
         if (userOptional.isEmpty()) {
-            throw new ResourceNotFoundException(userId.toString());
+            throw new ResourceNotFoundException(userTelegramId.toString());
         }
 
         Optional<RegionModel> regionOptional = regionService.findRegionById(regionId);

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface UserService {
 
-    Optional<UserModel> getUserByTelegramId(String telegramId);
+    Optional<UserModel> getUserByTelegramId(Long telegramId);
 
     UserModel saveUser(UserModel user);
 

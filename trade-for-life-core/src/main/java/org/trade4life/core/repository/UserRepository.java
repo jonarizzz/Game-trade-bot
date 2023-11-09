@@ -16,5 +16,5 @@ public interface UserRepository extends CrudRepository<UserModel, Long> {
 
     Optional<UserModel> findUserByNickname(String nickname);
 
-    Optional<UserModel> findUserByTelegramId(String telegramId);
+    Optional<UserModel> findUserByTelegramId(Long telegramId);
 }

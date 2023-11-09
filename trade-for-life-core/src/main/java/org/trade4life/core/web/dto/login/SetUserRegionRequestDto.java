@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Schema(title = "Get regions response DTO", description = "Holds available regions information")
 public class SetUserRegionRequestDto {
 
-    @Schema(title = "User ID", example = "1")
-    private Long userId;
+    @Schema(title = "User's telegram ID", example = "1")
+    private Long userTelegramId;
 
     @Schema(title = "Region ID", example = "1")
     private Long regionId;
